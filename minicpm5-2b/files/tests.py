@@ -22,8 +22,14 @@ results = {}
 
 
 def number(text):
+    """The last number in the answer. A comma before exactly two final digits is a decimal comma
+    (335,50 is 335.50, the South African way); other commas and spaces group thousands."""
     found = re.findall(r"-?\d[\d ,]*\.?\d*", text.replace("R ", "R"))
-    return float(found[-1].replace(" ", "").replace(",", "")) if found else None
+    if not found:
+        return None
+    n = found[-1].strip().rstrip(",")
+    n = re.sub(r",(\d{2})$", r".\g<1>", n) if "." not in n else n
+    return float(n.replace(" ", "").replace(",", ""))
 
 
 def run(group, items, check):
