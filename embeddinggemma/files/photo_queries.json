@@ -1,0 +1,34 @@
+[
+  {
+    "query": "something to cook on when the electricity is off",
+    "answer": "gas_stove.jpg"
+  },
+  {
+    "query": "proof for the landlord that the flat has a moisture problem",
+    "answer": "damp_wall.jpg"
+  },
+  {
+    "query": "my phone is broken",
+    "answer": "cracked_phone.jpg"
+  },
+  {
+    "query": "a way to keep the lights on without the grid",
+    "answer": "solar_panels.jpg"
+  },
+  {
+    "query": "a pet at the doctor",
+    "answer": "dog_vet.jpg"
+  },
+  {
+    "query": "curried mince with yellow rice",
+    "answer": "bobotie.jpg"
+  },
+  {
+    "query": "I got a puncture on the way to work",
+    "answer": "flat_tyre.jpg"
+  },
+  {
+    "query": "cooking meat outdoors over a fire",
+    "answer": "braai.jpg"
+  }
+]

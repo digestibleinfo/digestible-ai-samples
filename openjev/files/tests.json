@@ -1,0 +1,95 @@
+{
+  "scam": {
+    "use": "personal",
+    "title": "Is this message a scam?",
+    "question": "Is this message a scam or phishing attempt?",
+    "items": [
+      {"state": "SMS from 'FNB': Your account has been suspended. Verify your details within 24 hours at fnb-secure-verify.co/login or lose access.", "answer": "yes"},
+      {"state": "WhatsApp from unknown number: Hi Mom, I dropped my phone in the toilet, this is my new number. Can you pay R3 500 to this account urgently? I'll explain later.", "answer": "yes"},
+      {"state": "Email: Congratulations! You have won R250 000 in the SA Mobile Lottery. Send a R950 processing fee to claim your prize.", "answer": "yes"},
+      {"state": "SMS: SARS: You are due a tax refund of R4 812. Click sars-refund-claim.net and enter your card number to receive it today.", "answer": "yes"},
+      {"state": "Email from 'Takealot Support': Your order could not be delivered. Pay R29 redelivery fee here: takealot-redeliver.top/pay", "answer": "yes"},
+      {"state": "Call transcript: This is your bank's fraud team. To stop the fraudulent transaction, read me the OTP we just sent to your phone.", "answer": "yes"},
+      {"state": "SMS from Discovery: Your monthly statement for September is ready. Log in to the Discovery app to view it.", "answer": "no"},
+      {"state": "WhatsApp from Thandi (saved contact): Running 10 minutes late for lunch, order me the chicken salad please.", "answer": "no"},
+      {"state": "Email from the school: Reminder, the Grade 5 outing to the zoo is on Friday. Children must bring a packed lunch and R50.", "answer": "no"},
+      {"state": "SMS: Your Checkers Sixty60 order #48213 is on its way. Your driver Sipho will arrive in about 15 minutes.", "answer": "no"},
+      {"state": "Email from your landlord (usual address): The plumber will come on Tuesday at 10:00 to fix the geyser. Please make sure someone is home.", "answer": "no"},
+      {"state": "SMS from Vodacom: You have used 80% of your monthly data bundle. Dial *135# to check your balance.", "answer": "no"}
+    ]
+  },
+  "expense": {
+    "use": "personal",
+    "title": "Sort my expenses",
+    "question": "Which spending category does this transaction belong to?",
+    "options": ["groceries", "fuel and transport", "medical", "eating out", "household bills", "entertainment"],
+    "items": [
+      {"state": "Card purchase: PICK N PAY MENLYN R1 243,50 - milk, bread, chicken, vegetables, washing powder", "answer": "groceries"},
+      {"state": "Card purchase: SHELL GARSFONTEIN R850,00 - unleaded 95, 38.2 litres", "answer": "fuel and transport"},
+      {"state": "Card purchase: CLICKS PHARMACY R312,40 - prescription: amoxicillin, consultation fee", "answer": "medical"},
+      {"state": "Card purchase: NANDOS HATFIELD R286,00 - 1/2 chicken, chips, two drinks", "answer": "eating out"},
+      {"state": "Debit order: CITY OF TSHWANE R1 980,00 - electricity and water, account 2045771", "answer": "household bills"},
+      {"state": "Card purchase: STER-KINEKOR R190,00 - 2 movie tickets", "answer": "entertainment"},
+      {"state": "Card purchase: UBER TRIP R96,50 - Hatfield to Menlyn", "answer": "fuel and transport"},
+      {"state": "Debit order: TELKOM FIBRE R899,00 - monthly internet", "answer": "household bills"},
+      {"state": "Card purchase: WOOLWORTHS FOOD R645,20 - fruit, yoghurt, meat, bread", "answer": "groceries"},
+      {"state": "Card purchase: DR N. MOKOENA DENTIST R1 150,00 - check-up and cleaning", "answer": "medical"},
+      {"state": "Card purchase: SPUR STEAK RANCHES R534,00 - family dinner for four", "answer": "eating out"},
+      {"state": "Debit order: SHOWMAX R99,00 - monthly subscription", "answer": "entertainment"}
+    ]
+  },
+  "urgency": {
+    "use": "personal",
+    "title": "How urgent is this message?",
+    "question": "How urgent is this message for me?",
+    "levels": ["can wait", "this week", "today", "right now"],
+    "items": [
+      {"state": "From my sister: Whenever you have time, send me that lasagne recipe.", "answer": "can wait"},
+      {"state": "From the school: Please sign and return the outing permission form by Friday.", "answer": "this week"},
+      {"state": "From my boss: Can you send me the quarterly figures before 5 pm today?", "answer": "today"},
+      {"state": "From my neighbour: Your geyser is leaking, water is running under your front door right now.", "answer": "right now"},
+      {"state": "From a friend: Want to go hiking sometime next month?", "answer": "can wait"},
+      {"state": "From the car service centre: Your car is ready for collection. We close at 17:00 today.", "answer": "today"},
+      {"state": "From my child's school: Your son has been injured on the sports field, please come immediately.", "answer": "right now"},
+      {"state": "From the bank: Your new card will be couriered to you; please be available for delivery on Thursday.", "answer": "this week"}
+    ]
+  },
+  "tickets": {
+    "use": "business",
+    "title": "Route support tickets",
+    "question": "Which team should handle this customer message?",
+    "options": ["billing", "shipping", "returns", "technical support", "sales"],
+    "items": [
+      {"state": "I was charged twice for order 55120 this month. Please refund the second payment.", "answer": "billing"},
+      {"state": "My parcel was supposed to arrive on Monday and the tracking hasn't moved in five days.", "answer": "shipping"},
+      {"state": "The shoes I ordered are too small. How do I send them back and get a bigger size?", "answer": "returns"},
+      {"state": "The app crashes every time I open my order history on my Android phone.", "answer": "technical support"},
+      {"state": "We'd like to order 200 units for our office. Do you offer a bulk discount?", "answer": "sales"},
+      {"state": "Your invoice shows VAT twice. Can you send a corrected invoice?", "answer": "billing"},
+      {"state": "The courier left my package at the wrong address, number 14 instead of 41.", "answer": "shipping"},
+      {"state": "The kettle stopped working after a week. I want my money back.", "answer": "returns"},
+      {"state": "I can't log in. The password reset email never arrives.", "answer": "technical support"},
+      {"state": "Do you have a business account option with 30-day payment terms?", "answer": "sales"},
+      {"state": "My debit order went off on the 1st, but I cancelled my subscription in August.", "answer": "billing"},
+      {"state": "Can I change the delivery address for order 77231? It hasn't shipped yet.", "answer": "shipping"},
+      {"state": "I received a blue jacket but ordered a black one. I'd like to exchange it.", "answer": "returns"},
+      {"state": "The website shows an error 500 when I try to pay with my card.", "answer": "technical support"},
+      {"state": "I'm interested in your premium plan for a team of 15. Can someone call me?", "answer": "sales"}
+    ]
+  },
+  "moderation": {
+    "use": "business",
+    "title": "Moderate community comments",
+    "question": "Does this comment break the rules of a respectful community forum (insults, threats or harassment)?",
+    "items": [
+      {"state": "Comment: This recipe was great, I added a bit more garlic and it was perfect.", "answer": "no"},
+      {"state": "Comment: Only an idiot would post something this stupid. Get off the internet.", "answer": "yes"},
+      {"state": "Comment: I disagree with the review. The battery life was much worse in my experience.", "answer": "no"},
+      {"state": "Comment: I know where you live and you'll regret posting this.", "answer": "yes"},
+      {"state": "Comment: Thanks for the tip, saved me a lot of time.", "answer": "no"},
+      {"state": "Comment: People like you are the reason this country is a mess, you worthless clown.", "answer": "yes"},
+      {"state": "Comment: The delivery took two weeks, which is too slow. Not happy with the service.", "answer": "no"},
+      {"state": "Comment: Everyone go and spam her page until she deletes her account.", "answer": "yes"}
+    ]
+  }
+}

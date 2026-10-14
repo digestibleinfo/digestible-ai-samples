@@ -1,0 +1,14 @@
+TAX INVOICE
+Ndlovu Tyres and Rims, Gqeberha
+Invoice number: INV-2026-2199
+Date: 4 October 2026
+Client: Dlamini Hardware (Pty) Ltd
+
+Wall sockets | 38 x R 752,09 = R 28 579,42
+Potting soil 50L | 33 x R 2 105,95 = R 69 496,35
+Copper pipe 15mm | 30 x R 723,09 = R 21 692,70
+
+Subtotal: R 119 768,47
+VAT 15%: R 17 965,27
+TOTAL DUE: R 137 733,74
+Payment within 21 days.

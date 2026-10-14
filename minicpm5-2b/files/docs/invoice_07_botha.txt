@@ -1,0 +1,14 @@
+TAX INVOICE
+Botha Office Furniture, Centurion
+Invoice number: INV-2026-6140
+Date: 11 October 2026
+Client: Dlamini Hardware (Pty) Ltd
+
+LED floodlights | 11 x R 2 242,85 = R 24 671,35
+Wall sockets | 28 x R 137,33 = R 3 845,24
+Truck tyres | 6 x R 1 845,56 = R 11 073,36
+
+Subtotal: R 39 589,95
+VAT 15%: R 5 938,49
+TOTAL DUE: R 45 528,44
+Payment within 21 days.

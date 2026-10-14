@@ -1,0 +1,14 @@
+TAX INVOICE
+Sithole Garden Centre, Nelspruit
+Invoice number: INV-2026-2028
+Date: 19 August 2026
+Client: Dlamini Hardware (Pty) Ltd
+
+Exterior paint 20L | 13 x R 287,70 = R 3 740,10
+Cold room panels | 38 x R 1 549,64 = R 58 886,32
+Cement 50kg bags | 25 x R 274,45 = R 6 861,25
+
+Subtotal: R 69 487,67
+VAT 15%: R 10 423,15
+TOTAL DUE: R 79 910,82
+Payment within 30 days.

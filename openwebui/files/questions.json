@@ -1,0 +1,58 @@
+[
+  {
+    "q": "What is the total due on the Mthunzi Building Supplies invoice?",
+    "a": "R 20 424,51"
+  },
+  {
+    "q": "What is the total due on the Sithole Garden Centre invoice?",
+    "a": "R 79 910,82"
+  },
+  {
+    "q": "What is the total due on the Botha Office Furniture invoice?",
+    "a": "R 45 528,44"
+  },
+  {
+    "q": "What is the total due on the Dube Printing Works invoice?",
+    "a": "R 82 483,73"
+  },
+  {
+    "q": "What is the invoice number of the Khumalo Plumbing Wholesale invoice?",
+    "a": "INV-2026-4657"
+  },
+  {
+    "q": "What is the invoice number of the Van Wyk Paints invoice?",
+    "a": "INV-2026-5070"
+  },
+  {
+    "q": "What is the invoice number of the Mokoena Farm Feeds invoice?",
+    "a": "INV-2026-2064"
+  },
+  {
+    "q": "On what date is the Pretorius Electrical invoice?",
+    "a": "18 August 2026"
+  },
+  {
+    "q": "On what date is the Ndlovu Tyres and Rims invoice?",
+    "a": "4 October 2026"
+  },
+  {
+    "q": "How much VAT is on the Jacobs Cold Storage invoice?",
+    "a": "R 11 894,32"
+  },
+  {
+    "q": "What is the monthly rental in the lease?",
+    "a": "R 9 800,00"
+  },
+  {
+    "q": "How much is the deposit in the lease?",
+    "a": "R 19 600,00"
+  },
+  {
+    "q": "How many days notice is needed to cancel the lease?",
+    "a": "30"
+  },
+  {
+    "q": "What is the fine for keeping a pet without consent?",
+    "a": "R 500,00"
+  }
+]

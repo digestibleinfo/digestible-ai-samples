@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: #0b1020; }
+      #root {
+        width: 100%; height: 100%; display: flex; flex-direction: column; align-items: flex-start;
+        justify-content: center; padding: 0 160px; gap: 40px;
+        font-family: Inter, ui-sans-serif, system-ui, sans-serif; color: #f4f4f5;
+        background: linear-gradient(135deg, #0b1020, #12304a);
+      }
+      #title { font-size: 96px; font-weight: 700; letter-spacing: -0.03em; }
+      .line { font-size: 54px; font-weight: 500; color: #7be0c3; }
+      #foot { font-size: 36px; color: #ffd166; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="8" data-width="1920" data-height="1080">
+      <h1 id="title" class="clip" data-start="0" data-duration="8" data-track-index="0">A video made from a web page</h1>
+      <p id="l1" class="line clip" data-start="1" data-duration="7" data-track-index="1">1. Write HTML</p>
+      <p id="l2" class="line clip" data-start="2" data-duration="6" data-track-index="2">2. Add a GSAP animation</p>
+      <p id="l3" class="line clip" data-start="3" data-duration="5" data-track-index="3">3. Run one command</p>
+      <p id="foot" class="clip" data-start="4.5" data-duration="3.5" data-track-index="4">Rendered on a Ryzen 7 from 2018</p>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#title", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8 }, 0);
+      tl.fromTo("#l1", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.6 }, 1);
+      tl.fromTo("#l2", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.6 }, 2);
+      tl.fromTo("#l3", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.6 }, 3);
+      tl.fromTo("#foot", { opacity: 0 }, { opacity: 1, duration: 0.8 }, 4.5);
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

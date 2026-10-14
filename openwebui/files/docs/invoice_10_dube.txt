@@ -1,0 +1,14 @@
+TAX INVOICE
+Dube Printing Works, Soweto
+Invoice number: INV-2026-9134
+Date: 3 August 2026
+Client: Dlamini Hardware (Pty) Ltd
+
+Copper pipe 15mm | 15 x R 1 854,19 = R 27 812,85
+Cattle feed 50kg | 10 x R 1 783,85 = R 17 838,50
+Roofing sheets | 27 x R 965,69 = R 26 073,63
+
+Subtotal: R 71 724,98
+VAT 15%: R 10 758,75
+TOTAL DUE: R 82 483,73
+Payment within 21 days.

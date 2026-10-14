@@ -1,0 +1,14 @@
+TAX INVOICE
+Mthunzi Building Supplies, Polokwane
+Invoice number: INV-2026-9313
+Date: 7 August 2026
+Client: Dlamini Hardware (Pty) Ltd
+
+Truck tyres | 5 x R 215,59 = R 1 077,95
+LED floodlights | 36 x R 266,68 = R 9 600,48
+Office chairs | 39 x R 181,59 = R 7 082,01
+
+Subtotal: R 17 760,44
+VAT 15%: R 2 664,07
+TOTAL DUE: R 20 424,51
+Payment within 14 days.

@@ -1,0 +1,138 @@
+{
+  "maths": [
+    {
+      "name": "Grocery budget",
+      "prompt": "I have R1 500 for groceries this month. I have spent R387,50, R264,20 and R512,80. How many rand do I have left? End with the number only.",
+      "answer": 335.5
+    },
+    {
+      "name": "Discount",
+      "prompt": "A jacket costs R1 299 and is 30% off. What is the sale price in rand? End with the number only.",
+      "answer": 909.3
+    },
+    {
+      "name": "Recipe scaling",
+      "prompt": "A recipe for 4 people needs 300 g of rice. How many grams do I need for 10 people? End with the number only.",
+      "answer": 750
+    },
+    {
+      "name": "Fuel cost",
+      "prompt": "My car uses 7.5 litres per 100 km. Petrol costs R22,40 a litre. How many rand does a 340 km trip cost? End with the number only.",
+      "answer": 571.2
+    },
+    {
+      "name": "Loan interest",
+      "prompt": "I borrow R20 000 at 12% simple interest per year for 18 months. How much interest do I pay in rand? End with the number only.",
+      "answer": 3600
+    },
+    {
+      "name": "Split the bill",
+      "prompt": "A restaurant bill is R1 180. We add a 10% tip and split it equally between 4 people. How many rand does each person pay? End with the number only.",
+      "answer": 324.5
+    },
+    {
+      "name": "Electricity units",
+      "prompt": "Electricity costs R2,85 per kWh. A heater uses 2 kW and runs 3 hours a day for 30 days. How many rand does it cost? End with the number only.",
+      "answer": 513
+    },
+    {
+      "name": "Savings goal",
+      "prompt": "I save R750 every month. How many months until I have at least R10 000? End with the number only.",
+      "answer": 14
+    },
+    {
+      "name": "VAT",
+      "prompt": "A price of R2 875 includes 15% VAT. What is the price without VAT, in rand? End with the number only.",
+      "answer": 2500
+    },
+    {
+      "name": "Paint",
+      "prompt": "A room has walls of 4 m, 4 m, 5 m and 5 m, all 2.5 m high. One litre of paint covers 10 square metres, and I need two coats. How many litres do I need? End with the number only.",
+      "answer": 9
+    },
+    {
+      "name": "Time",
+      "prompt": "A bus leaves at 07:45 and the trip takes 2 hours and 50 minutes. At what time does it arrive? Answer as hours and minutes in 24-hour time, and end with the four digits only, like 1035.",
+      "answer": 1035
+    },
+    {
+      "name": "Ages",
+      "prompt": "Thabo is three times as old as his son. In 12 years he will be twice as old as his son. How old is Thabo now? End with the number only.",
+      "answer": 36
+    }
+  ],
+  "code": [
+    {
+      "name": "is_palindrome",
+      "prompt": "Write a Python function is_palindrome(s) that returns True if s reads the same backwards, ignoring case, spaces and punctuation. Reply with the code only.",
+      "tests": "assert is_palindrome('A man, a plan, a canal: Panama')\nassert not is_palindrome('hello')\nassert is_palindrome('')"
+    },
+    {
+      "name": "parse_rand",
+      "prompt": "Write a Python function parse_rand(text) that turns a South African amount like 'R 1 234,56' or 'R12,50' into a float (1234.56, 12.5). Reply with the code only.",
+      "tests": "assert parse_rand('R 1 234,56') == 1234.56\nassert parse_rand('R12,50') == 12.5\nassert parse_rand('R 100 000,00') == 100000.0"
+    },
+    {
+      "name": "valid_sa_id",
+      "prompt": "Write a Python function luhn_valid(number) that returns True if a string of digits passes the Luhn checksum. Reply with the code only.",
+      "tests": "assert luhn_valid('4539578763621486')\nassert not luhn_valid('4539578763621487')\nassert luhn_valid('79927398713')"
+    },
+    {
+      "name": "word_count",
+      "prompt": "Write a Python function top_words(text, n) that returns the n most common words (lowercase, letters only) as a list of (word, count) tuples, most common first; break ties alphabetically. Reply with the code only.",
+      "tests": "assert top_words('the cat and the hat and the bat', 2) == [('the', 3), ('and', 2)]\nassert top_words('b a a b c', 2) == [('a', 2), ('b', 2)]"
+    },
+    {
+      "name": "merge_ranges",
+      "prompt": "Write a Python function merge_ranges(ranges) that merges overlapping (start, end) integer ranges and returns them sorted. Reply with the code only.",
+      "tests": "assert merge_ranges([(1, 3), (2, 6), (8, 10), (15, 18)]) == [(1, 6), (8, 10), (15, 18)]\nassert merge_ranges([(5, 7), (1, 2)]) == [(1, 2), (5, 7)]\nassert merge_ranges([]) == []"
+    },
+    {
+      "name": "business_days",
+      "prompt": "Write a Python function business_days(start, end) that counts weekdays (Monday to Friday) from start to end inclusive, where both are datetime.date objects. Reply with the code only, including imports.",
+      "tests": "import datetime as d\nassert business_days(d.date(2026, 10, 12), d.date(2026, 10, 18)) == 5\nassert business_days(d.date(2026, 10, 17), d.date(2026, 10, 17)) == 0\nassert business_days(d.date(2026, 10, 1), d.date(2026, 10, 31)) == 22"
+    }
+  ],
+  "long": [
+    {
+      "q": "What is the access code for the storeroom?",
+      "a": "4417"
+    },
+    {
+      "q": "Who is the fire marshal on the second floor?",
+      "a": "Lindiwe Khoza"
+    },
+    {
+      "q": "How many days of study leave does an employee get per year?",
+      "a": "5"
+    },
+    {
+      "q": "What is the name of the company's backup generator supplier?",
+      "a": "Ubuntu Power Systems"
+    },
+    {
+      "q": "On which day of the month are salaries paid?",
+      "a": "25"
+    }
+  ],
+  "rands": [
+    {
+      "name": "Grocery budget",
+      "spaced": "I have R1 500 for groceries this month. I have spent R387,50, R264,20 and R512,80. How many rand do I have left? End with the number only.",
+      "plain": "I have R1500 for groceries this month. I have spent R387.50, R264.20 and R512.80. How many rand do I have left? End with the number only.",
+      "answer": 335.5
+    },
+    {
+      "name": "Discount",
+      "spaced": "A jacket costs R1 299 and is 30% off. What is the sale price in rand? End with the number only.",
+      "plain": "A jacket costs R1299 and is 30% off. What is the sale price in rand? End with the number only.",
+      "answer": 909.3
+    },
+    {
+      "name": "Split the bill",
+      "spaced": "A restaurant bill is R1 180. We add a 10% tip and split it equally between 4 people. How many rand does each person pay? End with the number only.",
+      "plain": "A restaurant bill is R1180. We add a 10% tip and split it equally between 4 people. How many rand does each person pay? End with the number only.",
+      "answer": 324.5
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+TAX INVOICE
+Pretorius Electrical, Bloemfontein
+Invoice number: INV-2026-3363
+Date: 18 August 2026
+Client: Dlamini Hardware (Pty) Ltd
+
+Roofing sheets | 27 x R 161,78 = R 4 368,06
+A3 poster prints | 16 x R 154,70 = R 2 475,20
+Wall sockets | 10 x R 727,03 = R 7 270,30
+
+Subtotal: R 14 113,56
+VAT 15%: R 2 117,03
+TOTAL DUE: R 16 230,59
+Payment within 30 days.

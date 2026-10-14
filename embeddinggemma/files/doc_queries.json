@@ -1,0 +1,50 @@
+[
+  {
+    "query": "who repaired our hot water cylinder and what did it cost",
+    "answer": "invoice_plumber.txt"
+  },
+  {
+    "query": "the paper where the school wants money for an outing",
+    "answer": "school_trip_letter.txt"
+  },
+  {
+    "query": "what can I cook that is curried mince with a custard top",
+    "answer": "recipe_bobotie.txt"
+  },
+  {
+    "query": "how much is my rent going up",
+    "answer": "lease_renewal.txt"
+  },
+  {
+    "query": "money the tax office owes me",
+    "answer": "sars_assessment.txt"
+  },
+  {
+    "query": "will insurance pay if the power comes back and fries the television",
+    "answer": "home_insurance_policy.txt"
+  },
+  {
+    "query": "which day is the mechanic looking at the car",
+    "answer": "car_service_booking.txt"
+  },
+  {
+    "query": "how do I stop paying for my fitness subscription",
+    "answer": "gym_contract.txt"
+  },
+  {
+    "query": "what do I do when the wifi box stops working",
+    "answer": "router_manual.txt"
+  },
+  {
+    "query": "complaint about a bag that never arrived",
+    "answer": "airline_complaint.txt"
+  },
+  {
+    "query": "price of a backup power system for the house",
+    "answer": "solar_quote.txt"
+  },
+  {
+    "query": "why did the doctor's bill get refused",
+    "answer": "medical_aid_claim.txt"
+  }
+]

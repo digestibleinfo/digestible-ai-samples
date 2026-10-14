@@ -1,0 +1,14 @@
+TAX INVOICE
+Van Wyk Paints, Stellenbosch
+Invoice number: INV-2026-5070
+Date: 26 August 2026
+Client: Dlamini Hardware (Pty) Ltd
+
+Potting soil 50L | 36 x R 1 051,98 = R 37 871,28
+Cattle feed 50kg | 22 x R 1 141,49 = R 25 112,78
+Cement 50kg bags | 31 x R 896,53 = R 27 792,43
+
+Subtotal: R 90 776,49
+VAT 15%: R 13 616,47
+TOTAL DUE: R 104 392,96
+Payment within 30 days.

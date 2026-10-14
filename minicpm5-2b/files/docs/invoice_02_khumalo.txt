@@ -1,0 +1,14 @@
+TAX INVOICE
+Khumalo Plumbing Wholesale, Durban
+Invoice number: INV-2026-4657
+Date: 21 October 2026
+Client: Dlamini Hardware (Pty) Ltd
+
+Office chairs | 17 x R 258,63 = R 4 396,71
+Gate hinges | 29 x R 184,21 = R 5 342,09
+Copper pipe 15mm | 38 x R 336,55 = R 12 788,90
+
+Subtotal: R 22 527,70
+VAT 15%: R 3 379,16
+TOTAL DUE: R 25 906,86
+Payment within 30 days.

@@ -1,0 +1,14 @@
+TAX INVOICE
+Jacobs Cold Storage, Cape Town
+Invoice number: INV-2026-8564
+Date: 12 August 2026
+Client: Dlamini Hardware (Pty) Ltd
+
+Exterior paint 20L | 30 x R 715,22 = R 21 456,60
+Cement 50kg bags | 26 x R 2 133,98 = R 55 483,48
+A3 poster prints | 24 x R 98,14 = R 2 355,36
+
+Subtotal: R 79 295,44
+VAT 15%: R 11 894,32
+TOTAL DUE: R 91 189,76
+Payment within 30 days.

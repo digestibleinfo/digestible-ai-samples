@@ -1,0 +1,26 @@
+[
+  {
+    "query": "who needs the referral letter",
+    "answer": "note_referral.wav"
+  },
+  {
+    "query": "when is the money for the school outing due",
+    "answer": "note_school_money.wav"
+  },
+  {
+    "query": "what should I charge before the power goes off",
+    "answer": "note_loadshedding.wav"
+  },
+  {
+    "query": "the pet's appointment",
+    "answer": "note_vet.wav"
+  },
+  {
+    "query": "getting my money back from the bank",
+    "answer": "note_bank.wav"
+  },
+  {
+    "query": "the plumbing problem",
+    "answer": "note_plumber.wav"
+  }
+]
