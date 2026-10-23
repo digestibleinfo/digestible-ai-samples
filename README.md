@@ -6,6 +6,7 @@ Each video says which pack to download. Save the zip into the folder you made in
 
 | Tool | Download | Browse |
 |---|---|---|
+| GuppyLM (a 9M-parameter fish model you train yourself) | [guppylm-samples.zip](https://github.com/digestibleinfo/digestible-ai-samples/raw/main/guppylm/guppylm-samples.zip) | [guppylm/files](guppylm/files) |
 | Kronos (financial candlestick forecasts) | [kronos-samples.zip](https://github.com/digestibleinfo/digestible-ai-samples/raw/main/kronos/kronos-samples.zip) | [kronos/files](kronos/files) |
 | OpenJev (Jev decision model) with llama.cpp | [jev-samples.zip](https://github.com/digestibleinfo/digestible-ai-samples/raw/main/openjev/jev-samples.zip) | [openjev/files](openjev/files) |
 | MiniCPM5-2B | [minicpm-samples.zip](https://github.com/digestibleinfo/digestible-ai-samples/raw/main/minicpm5-2b/minicpm-samples.zip) | [minicpm5-2b/files](minicpm5-2b/files) |
