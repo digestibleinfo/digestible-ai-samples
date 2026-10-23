@@ -6,6 +6,7 @@ Each video says which pack to download. Save the zip into the folder you made in
 
 | Tool | Download | Browse |
 |---|---|---|
+| Kronos (financial candlestick forecasts) | [kronos-samples.zip](https://github.com/digestibleinfo/digestible-ai-samples/raw/main/kronos/kronos-samples.zip) | [kronos/files](kronos/files) |
 | OpenJev (Jev decision model) with llama.cpp | [jev-samples.zip](https://github.com/digestibleinfo/digestible-ai-samples/raw/main/openjev/jev-samples.zip) | [openjev/files](openjev/files) |
 | MiniCPM5-2B | [minicpm-samples.zip](https://github.com/digestibleinfo/digestible-ai-samples/raw/main/minicpm5-2b/minicpm-samples.zip) | [minicpm5-2b/files](minicpm5-2b/files) |
 | Open WebUI + Ollama | [openwebui-samples.zip](https://github.com/digestibleinfo/digestible-ai-samples/raw/main/openwebui/openwebui-samples.zip) | [openwebui/files](openwebui/files) |
@@ -14,6 +15,6 @@ Each video says which pack to download. Save the zip into the folder you made in
 | EmbeddingGemma 2 | [embedding-samples.zip](https://github.com/digestibleinfo/digestible-ai-samples/raw/main/embeddinggemma/embedding-samples.zip) | [embeddinggemma/files](embeddinggemma/files) |
 | Unlimited-OCR | [ocr-samples.zip](https://github.com/digestibleinfo/digestible-ai-samples/raw/main/unlimited-ocr/ocr-samples.zip) | [unlimited-ocr/files](unlimited-ocr/files) |
 
-All names, numbers, messages and documents in these packs are made up for testing. Photos marked as AI-generated and voice notes are synthetic.
+All names, numbers, messages and documents in these packs are made up for testing, except the Kronos pack, whose scripts download real public price history. Photos marked as AI-generated and voice notes are synthetic.
 
 The scripts are provided as-is for learning, under the MIT licence.
