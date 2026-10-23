@@ -6,6 +6,7 @@ Each video says which pack to download. Save the zip into the folder you made in
 
 | Tool | Download | Browse |
 |---|---|---|
+| Forge (guardrails for local-model tool calling) | [forge-samples.zip](https://github.com/digestibleinfo/digestible-ai-samples/raw/main/forge/forge-samples.zip) | [forge/files](forge/files) |
 | Graphify (codebase knowledge graphs) | [graphify-samples.zip](https://github.com/digestibleinfo/digestible-ai-samples/raw/main/graphify/graphify-samples.zip) | [graphify/files](graphify/files) |
 | GuppyLM (a 9M-parameter fish model you train yourself) | [guppylm-samples.zip](https://github.com/digestibleinfo/digestible-ai-samples/raw/main/guppylm/guppylm-samples.zip) | [guppylm/files](guppylm/files) |
 | Kronos (financial candlestick forecasts) | [kronos-samples.zip](https://github.com/digestibleinfo/digestible-ai-samples/raw/main/kronos/kronos-samples.zip) | [kronos/files](kronos/files) |
