@@ -6,6 +6,7 @@ Each video says which pack to download. Save the zip into the folder you made in
 
 | Tool | Download | Browse |
 |---|---|---|
+| ComfyUI + FLUX 3 Klein (NVFP4) workflow | [comfyui-flux3-klein-samples.zip](https://github.com/digestibleinfo/digestible-ai-samples/raw/main/comfyui-flux3-klein/comfyui-flux3-klein-samples.zip) | [comfyui-flux3-klein/files](comfyui-flux3-klein/files) |
 | ComfyUI + Qwen-Image-2.1 GGUF (Q3_K_S) workflow | [comfyui-qwen-image-2.1-samples.zip](https://github.com/digestibleinfo/digestible-ai-samples/raw/main/comfyui-qwen-image-2.1/comfyui-qwen-image-2.1-samples.zip) | [comfyui-qwen-image-2.1/files](comfyui-qwen-image-2.1/files) |
 | Forge (guardrails for local-model tool calling) | [forge-samples.zip](https://github.com/digestibleinfo/digestible-ai-samples/raw/main/forge/forge-samples.zip) | [forge/files](forge/files) |
 | Graphify (codebase knowledge graphs) | [graphify-samples.zip](https://github.com/digestibleinfo/digestible-ai-samples/raw/main/graphify/graphify-samples.zip) | [graphify/files](graphify/files) |
