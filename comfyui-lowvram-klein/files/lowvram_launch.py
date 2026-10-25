@@ -12,7 +12,7 @@ import sys
 from ctypes import wintypes
 from pathlib import Path
 
-PORTABLE = Path(r"E:\tutorial-work\klein-demo\ComfyUI_windows_portable")
+PORTABLE = Path(r"C:/ComfyUI_windows_portable")  # <- change this to your own ComfyUI_windows_portable folder
 CARD_GB = 16
 
 k32 = ctypes.WinDLL("kernel32", use_last_error=True)
