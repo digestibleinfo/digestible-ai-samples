@@ -7,6 +7,7 @@ Each video says which pack to download. Save the zip into the folder you made in
 | Tool | Download | Browse |
 |---|---|---|
 | ComfyUI + MOSS-Image-SFT (int8) workflow | [comfyui-moss-image-samples.zip](https://github.com/digestibleinfo/digestible-ai-samples/raw/main/comfyui-moss-image/comfyui-moss-image-samples.zip) | [comfyui-moss-image/files](comfyui-moss-image/files) |
+| ComfyUI LOW VRAM: MOSS-Image GGUF on 4, 8 and 12 GB | [comfyui-lowvram-moss-image-samples.zip](https://github.com/digestibleinfo/digestible-ai-samples/raw/main/comfyui-lowvram-moss-image/comfyui-lowvram-moss-image-samples.zip) | [comfyui-lowvram-moss-image/files](comfyui-lowvram-moss-image/files) |
 | ComfyUI LOW VRAM: FLUX 3 Klein GGUF on 4, 8, 12 and 16 GB | [comfyui-lowvram-klein-samples.zip](https://github.com/digestibleinfo/digestible-ai-samples/raw/main/comfyui-lowvram-klein/comfyui-lowvram-klein-samples.zip) | [comfyui-lowvram-klein/files](comfyui-lowvram-klein/files) |
 | ComfyUI + FLUX 3 Klein (NVFP4) and Qwen-Image-2.1-Turbo workflows | [comfyui-flux3-klein-samples.zip](https://github.com/digestibleinfo/digestible-ai-samples/raw/main/comfyui-flux3-klein/comfyui-flux3-klein-samples.zip) | [comfyui-flux3-klein/files](comfyui-flux3-klein/files) |
 | ComfyUI + Qwen-Image-2.1 GGUF (Q3_K_S) workflow | [comfyui-qwen-image-2.1-samples.zip](https://github.com/digestibleinfo/digestible-ai-samples/raw/main/comfyui-qwen-image-2.1/comfyui-qwen-image-2.1-samples.zip) | [comfyui-qwen-image-2.1/files](comfyui-qwen-image-2.1/files) |
