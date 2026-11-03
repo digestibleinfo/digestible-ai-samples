@@ -1,0 +1,107 @@
+{
+ "prices": "deepseek-flash peak USD/1M tokens: cache hit 0.006, miss 0.30, output 1.20 (2026-11-03 pricing page)",
+ "rows": [
+  {
+   "task": "1",
+   "name": "easy: CLI flag",
+   "mode": "plain",
+   "planner_tokens": 236433,
+   "implementer_tokens": 0,
+   "planner_usd": 0.0111,
+   "implementer_usd": 0.0,
+   "total_usd": 0.0111,
+   "tests_passed": 8,
+   "tests_failed": 0,
+   "wall_s": 53,
+   "worker_jobs": 0
+  },
+  {
+   "task": "1",
+   "name": "easy: CLI flag",
+   "mode": "plugin",
+   "planner_tokens": 50207,
+   "implementer_tokens": 68296,
+   "planner_usd": 0.0069,
+   "implementer_usd": 0.005,
+   "total_usd": 0.0119,
+   "tests_passed": 9,
+   "tests_failed": 0,
+   "wall_s": 97,
+   "worker_jobs": 1
+  },
+  {
+   "task": "2",
+   "name": "medium: CSV export, 3 files",
+   "mode": "plain",
+   "planner_tokens": 315058,
+   "implementer_tokens": 0,
+   "planner_usd": 0.0152,
+   "implementer_usd": 0.0,
+   "total_usd": 0.0152,
+   "tests_passed": 13,
+   "tests_failed": 0,
+   "wall_s": 64,
+   "worker_jobs": 0
+  },
+  {
+   "task": "2",
+   "name": "medium: CSV export, 3 files",
+   "mode": "plugin",
+   "planner_tokens": 90112,
+   "implementer_tokens": 124362,
+   "planner_usd": 0.0106,
+   "implementer_usd": 0.0079,
+   "total_usd": 0.0185,
+   "tests_passed": 9,
+   "tests_failed": 0,
+   "wall_s": 724,
+   "worker_jobs": 1
+  },
+  {
+   "task": "3",
+   "name": "hard: planted cache bugs",
+   "mode": "plain",
+   "planner_tokens": 550274,
+   "implementer_tokens": 0,
+   "planner_usd": 0.0233,
+   "implementer_usd": 0.0,
+   "total_usd": 0.0233,
+   "tests_passed": 7,
+   "tests_failed": 0,
+   "wall_s": 1739,
+   "worker_jobs": 0
+  },
+  {
+   "task": "3",
+   "name": "hard: planted cache bugs",
+   "mode": "plugin",
+   "planner_tokens": 90013,
+   "implementer_tokens": 88581,
+   "planner_usd": 0.0077,
+   "implementer_usd": 0.0057,
+   "total_usd": 0.0134,
+   "tests_passed": 7,
+   "tests_failed": 0,
+   "wall_s": 107,
+   "worker_jobs": 1
+  }
+ ],
+ "totals": {
+  "plain": {
+   "planner_tokens": 1101765,
+   "implementer_tokens": 0,
+   "total_usd": 0.0496,
+   "tests_passed": 28,
+   "tests_failed": 0,
+   "wall_s": 1856
+  },
+  "plugin": {
+   "planner_tokens": 230332,
+   "implementer_tokens": 281239,
+   "total_usd": 0.0438,
+   "tests_passed": 25,
+   "tests_failed": 0,
+   "wall_s": 928
+  }
+ }
+}

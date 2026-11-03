@@ -22,6 +22,7 @@ Each video says which pack to download. Save the zip into the folder you made in
 | Hyperframes | [hyperframes-samples.zip](https://github.com/digestibleinfo/digestible-ai-samples/raw/main/hyperframes/hyperframes-samples.zip) | [hyperframes/files](hyperframes/files) |
 | EmbeddingGemma 2 | [embedding-samples.zip](https://github.com/digestibleinfo/digestible-ai-samples/raw/main/embeddinggemma/embedding-samples.zip) | [embeddinggemma/files](embeddinggemma/files) |
 | Unlimited-OCR | [ocr-samples.zip](https://github.com/digestibleinfo/digestible-ai-samples/raw/main/unlimited-ocr/ocr-samples.zip) | [unlimited-ocr/files](unlimited-ocr/files) |
+| Cheap Agent (Claude Code planner + cheap-model worker, cost test) | [cheap-agent-samples.zip](https://github.com/digestibleinfo/digestible-ai-samples/raw/main/cheap-agent/cheap-agent-samples.zip) | [cheap-agent/files](cheap-agent/files) |
 
 All names, numbers, messages and documents in these packs are made up for testing, except the Kronos pack, whose scripts download real public price history. Photos marked as AI-generated and voice notes are synthetic.
 
