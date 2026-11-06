@@ -1,0 +1,212 @@
+[
+ {
+  "task": "example: follow Learn more",
+  "runs": [
+   {
+    "pass": true,
+    "seconds": 3.2,
+    "why": ""
+   },
+   {
+    "pass": true,
+    "seconds": 4.2,
+    "why": ""
+   },
+   {
+    "pass": true,
+    "seconds": 3.2,
+    "why": ""
+   }
+  ],
+  "passed": 3
+ },
+ {
+  "task": "hackernews: open first comments page",
+  "runs": [
+   {
+    "pass": true,
+    "seconds": 4.8,
+    "why": ""
+   },
+   {
+    "pass": true,
+    "seconds": 4.5,
+    "why": ""
+   },
+   {
+    "pass": true,
+    "seconds": 4.4,
+    "why": ""
+   }
+  ],
+  "passed": 3
+ },
+ {
+  "task": "wikipedia: search Chromium",
+  "runs": [
+   {
+    "pass": true,
+    "seconds": 6.1,
+    "why": ""
+   },
+   {
+    "pass": true,
+    "seconds": 7.3,
+    "why": ""
+   },
+   {
+    "pass": true,
+    "seconds": 6.8,
+    "why": ""
+   }
+  ],
+  "passed": 3
+ },
+ {
+  "task": "books.toscrape: open a book",
+  "runs": [
+   {
+    "pass": true,
+    "seconds": 5.7,
+    "why": ""
+   },
+   {
+    "pass": true,
+    "seconds": 4.6,
+    "why": ""
+   },
+   {
+    "pass": true,
+    "seconds": 5.2,
+    "why": ""
+   }
+  ],
+  "passed": 3
+ },
+ {
+  "task": "quotes (JavaScript-rendered): 10 quotes appear",
+  "runs": [
+   {
+    "pass": true,
+    "seconds": 5.8,
+    "why": ""
+   },
+   {
+    "pass": true,
+    "seconds": 6.8,
+    "why": ""
+   },
+   {
+    "pass": true,
+    "seconds": 5.9,
+    "why": ""
+   }
+  ],
+  "passed": 3
+ },
+ {
+  "task": "httpbin: fill and submit a form",
+  "runs": [
+   {
+    "pass": true,
+    "seconds": 4.6,
+    "why": ""
+   },
+   {
+    "pass": true,
+    "seconds": 4.8,
+    "why": ""
+   },
+   {
+    "pass": false,
+    "seconds": 2.4,
+    "why": "no textbox matching 'Customer name' in snapshot"
+   }
+  ],
+  "passed": 2
+ },
+ {
+  "task": "python.org: search asyncio",
+  "runs": [
+   {
+    "pass": true,
+    "seconds": 5.6,
+    "why": ""
+   },
+   {
+    "pass": true,
+    "seconds": 5.4,
+    "why": ""
+   },
+   {
+    "pass": true,
+    "seconds": 4.5,
+    "why": ""
+   }
+  ],
+  "passed": 3
+ },
+ {
+  "task": "github: repo page reads",
+  "runs": [
+   {
+    "pass": true,
+    "seconds": 5.3,
+    "why": ""
+   },
+   {
+    "pass": true,
+    "seconds": 4.3,
+    "why": ""
+   },
+   {
+    "pass": true,
+    "seconds": 4.7,
+    "why": ""
+   }
+  ],
+  "passed": 3
+ },
+ {
+  "task": "react.dev: open Learn",
+  "runs": [
+   {
+    "pass": true,
+    "seconds": 4.9,
+    "why": ""
+   },
+   {
+    "pass": true,
+    "seconds": 4.6,
+    "why": ""
+   },
+   {
+    "pass": true,
+    "seconds": 4.6,
+    "why": ""
+   }
+  ],
+  "passed": 3
+ },
+ {
+  "task": "bbc news: open a headline",
+  "runs": [
+   {
+    "pass": true,
+    "seconds": 7.7,
+    "why": ""
+   },
+   {
+    "pass": true,
+    "seconds": 7.6,
+    "why": ""
+   },
+   {
+    "pass": false,
+    "seconds": 10.1,
+    "why": "https://www.bbc.com/news"
+   }
+  ],
+  "passed": 2
+ }
+]
