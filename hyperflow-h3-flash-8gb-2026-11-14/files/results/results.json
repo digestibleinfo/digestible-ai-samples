@@ -1,0 +1,47 @@
+﻿[
+    {
+        "clip":  1,
+        "seconds":  531.6,
+        "minutes":  8.9,
+        "first_step_after_s":  119,
+        "sampling_s":  341,
+        "peak_vram_gb":  7.58,
+        "peak_ram_gb":  25.27
+    },
+    {
+        "clip":  2,
+        "seconds":  538.9,
+        "minutes":  9.0,
+        "first_step_after_s":  123,
+        "sampling_s":  344,
+        "peak_vram_gb":  7.7,
+        "peak_ram_gb":  25.25
+    },
+    {
+        "clip":  3,
+        "seconds":  529.0,
+        "minutes":  8.8,
+        "first_step_after_s":  114,
+        "sampling_s":  342,
+        "peak_vram_gb":  7.61,
+        "peak_ram_gb":  25.25
+    },
+    {
+        "clip":  4,
+        "seconds":  526.2,
+        "minutes":  8.8,
+        "first_step_after_s":  114,
+        "sampling_s":  342,
+        "peak_vram_gb":  7.62,
+        "peak_ram_gb":  25.24
+    },
+    {
+        "clip":  5,
+        "seconds":  528.1,
+        "minutes":  8.8,
+        "first_step_after_s":  115,
+        "sampling_s":  342,
+        "peak_vram_gb":  7.57,
+        "peak_ram_gb":  25.25
+    }
+]
