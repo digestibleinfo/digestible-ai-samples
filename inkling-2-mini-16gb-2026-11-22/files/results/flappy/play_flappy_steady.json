@@ -1,0 +1,24 @@
+{
+ "mode": "flappy_steady",
+ "first_offscreen_at_s": 2.3,
+ "bird_y_min": -3504,
+ "bird_y_max": 263,
+ "texts_seen_after_30s": [
+  "14",
+  "15",
+  "16",
+  "17",
+  "18",
+  "19"
+ ],
+ "texts_end": [
+  "22",
+  "Game Over",
+  "Score: 22",
+  "22",
+  "Game Over",
+  "Score: 22"
+ ],
+ "bird_y_end": -9.057342201474633,
+ "errors": []
+}

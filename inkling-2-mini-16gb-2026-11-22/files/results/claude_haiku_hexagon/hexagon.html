@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Bouncing balls in a rotating hexagon</title>
+<style>
+  html, body { margin: 0; background: #111; overflow: hidden; }
+  canvas { display: block; width: 100vw; height: 100vh; }
+  #hud { position: fixed; top: 8px; left: 8px; color: #aaa;
+         font: 14px monospace; user-select: none; pointer-events: none; }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="hud"></div>
+<script>
+// ---------- Settings (CSS pixels, seconds) ----------
+const CFG = {
+  gravity: 900,        // px/s^2
+  omega: 0.6,          // hexagon angular speed, rad/s (change with + / -)
+  restitution: 0.85,   // 1 = perfectly bouncy, 0 = no bounce
+  ballCount: 5,
+  ballRadius: 14,
+  substeps: 8,
+};
+const COLORS = ['#ff6b6b','#feca57','#48dbfb','#1dd1a1','#ff9ff3',
+                '#54a0ff','#5f27cd','#ff9f43','#c8d6e5','#10ac84'];
+
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+const hud = document.getElementById('hud');
+
+let hexR = 300;   // circumradius (center to vertex), CSS px
+let cx = 0, cy = 0;
+let theta = 0;    // hexagon rotation angle
+let balls = [];
+
+function resize() {
+  const dpr = devicePixelRatio || 1;
+  canvas.width = innerWidth * dpr;
+  canvas.height = innerHeight * dpr;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);   // draw in CSS pixels
+  cx = innerWidth / 2;
+  cy = innerHeight / 2;
+  hexR = Math.min(innerWidth, innerHeight) * 0.4;
+}
+addEventListener('resize', resize);
+resize();
+
+function makeBall(x, y, vx, vy, i) {
+  return { x, y, vx, vy, r: CFG.ballRadius, color: COLORS[i % COLORS.length] };
+}
+
+function reset() {
+  theta = 0;
+  balls = [];
+  for (let i = 0; i < CFG.ballCount; i++) {
+    balls.push(makeBall(
+      (Math.random() - 0.5) * hexR * 0.8,
+      (Math.random() - 0.5) * hexR * 0.8,
+      (Math.random() - 0.5) * 400,
+      (Math.random() - 0.5) * 400,
+      i));
+  }
+}
+
+// ---------- Physics ----------
+function step(dt) {
+  theta += CFG.omega * dt;
+
+  const apothem = hexR * Math.cos(Math.PI / 6);
+  // Wall outward normals (rotate with the hexagon)
+  const normals = [];
+  for (let i = 0; i < 6; i++) {
+    const a = theta + i * Math.PI / 3;
+    normals.push([Math.cos(a), Math.sin(a)]);
+  }
+
+  const h = dt / CFG.substeps;
+  const e = CFG.restitution;
+  const w = CFG.omega;
+
+  for (let s = 0; s < CFG.substeps; s++) {
+    // Integrate + walls
+    for (const b of balls) {
+      b.vy += CFG.gravity * h;
+      b.x += b.vx * h;
+      b.y += b.vy * h;
+
+      for (const [nx, ny] of normals) {
+        const limit = apothem - b.r;
+        const d = b.x * nx + b.y * ny;          // signed distance along normal
+        if (d > limit) {
+          // Push out of the wall
+          b.x -= nx * (d - limit);
+          b.y -= ny * (d - limit);
+
+          // Velocity of the wall surface at the contact point: ω × p
+          const wvx = -w * b.y, wvy = w * b.x;
+          const vn = (b.vx - wvx) * nx + (b.vy - wvy) * ny;  // relative normal speed
+          if (vn > 0) {                          // moving into the wall
+            b.vx -= (1 + e) * vn * nx;
+            b.vy -= (1 + e) * vn * ny;
+          }
+        }
+      }
+    }
+
+    // Ball-ball collisions (equal mass)
+    for (let i = 0; i < balls.length; i++) {
+      for (let j = i + 1; j < balls.length; j++) {
+        const a = balls[i], b = balls[j];
+        const dx = b.x - a.x, dy = b.y - a.y;
+        const dist = Math.hypot(dx, dy);
+        const minD = a.r + b.r;
+        if (dist < minD && dist > 1e-9) {
+          const nx = dx / dist, ny = dy / dist;
+          const overlap = minD - dist;
+          a.x -= nx * overlap / 2; a.y -= ny * overlap / 2;
+          b.x += nx * overlap / 2; b.y += ny * overlap / 2;
+
+          const rv = (b.vx - a.vx) * nx + (b.vy - a.vy) * ny;
+          if (rv < 0) {                          // approaching
+            const p = -(1 + e) * rv / 2;
+            a.vx -= p * nx; a.vy -= p * ny;
+            b.vx += p * nx; b.vy += p * ny;
+          }
+        }
+      }
+    }
+  }
+}
+
+// ---------- Rendering ----------
+function draw() {
+  ctx.fillStyle = '#111';
+  ctx.fillRect(0, 0, innerWidth, innerHeight);
+
+  // Hexagon (rotated)
+  ctx.save();
+  ctx.translate(cx, cy);
+  ctx.rotate(theta);
+  ctx.beginPath();
+  for (let i = 0; i < 6; i++) {
+    const a = Math.PI / 6 + i * Math.PI / 3;   // vertices sit between wall normals
+    const x = hexR * Math.cos(a), y = hexR * Math.sin(a);
+    i ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
+  }
+  ctx.closePath();
+  ctx.lineWidth = 4;
+  ctx.strokeStyle = '#ddd';
+  ctx.stroke();
+  ctx.restore();
+
+  // Balls (world frame, offset to hex center)
+  for (const b of balls) {
+    ctx.beginPath();
+    ctx.arc(cx + b.x, cy + b.y, b.r, 0, Math.PI * 2);
+    ctx.fillStyle = b.color;
+    ctx.fill();
+  }
+
+  hud.textContent =
+    `balls: ${balls.length}  omega: ${CFG.omega.toFixed(2)} rad/s  ` +
+    `g: ${CFG.gravity}   [click] add ball  [+/-] spin  [R] reset`;
+}
+
+// ---------- Loop & controls ----------
+let last = performance.now();
+function frame(now) {
+  const dt = Math.min((now - last) / 1000, 1 / 30);  // clamp after tab switches
+  last = now;
+  step(dt);
+  draw();
+  requestAnimationFrame(frame);
+}
+
+canvas.addEventListener('mousedown', (e) => {
+  balls.push(makeBall(e.clientX - cx, e.clientY - cy, 0, 0, balls.length));
+});
+
+addEventListener('keydown', (e) => {
+  if (e.key === '+' || e.key === '=') CFG.omega += 0.1;
+  else if (e.key === '-' || e.key === '_') CFG.omega -= 0.1;
+  else if (e.key === 'r' || e.key === 'R') reset();
+  else if (e.key === 'g' || e.key === 'G') CFG.gravity = CFG.gravity ? 0 : 900;
+});
+
+reset();
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>

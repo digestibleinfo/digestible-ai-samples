@@ -1,0 +1,31 @@
+{
+ "model": "haiku (Claude Code)",
+ "wall_s": 13.5,
+ "api_ms": 13730,
+ "cost_usd": 0.0026001899999999996,
+ "input_tokens": 2,
+ "output_tokens": 3515,
+ "cache_read": 649,
+ "cache_create": 3484,
+ "modelUsage": {
+  "claude-haiku-5-5": {
+   "inputTokens": 1294,
+   "outputTokens": 3535,
+   "cacheReadInputTokens": 649,
+   "cacheCreationInputTokens": 3484,
+   "webSearchRequests": 0,
+   "costUSD": 0.0026001899999999996,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 0,
+   "cacheCreationEphemeral5mInputTokens": 0,
+   "cacheCreationEphemeral1hInputTokens": 3484,
+   "canonicalModel": "claude-haiku-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "html_chars": 6679,
+ "turns": 1,
+ "is_error": false
+}

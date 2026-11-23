@@ -1,0 +1,63 @@
+{
+ "type": "result",
+ "subtype": "success",
+ "is_error": false,
+ "num_turns": 1,
+ "duration_ms": 10677,
+ "duration_api_ms": 11307,
+ "stop_reason": "end_turn",
+ "total_cost_usd": 0.00193565,
+ "usage": {
+  "input_tokens": 2,
+  "cache_creation_input_tokens": 689,
+  "cache_read_input_tokens": 3445,
+  "output_tokens": 3248,
+  "output_tokens_details": {
+   "thinking_tokens": 0
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 689,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 3248,
+    "cache_read_input_tokens": 3445,
+    "cache_creation_input_tokens": 689,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 689
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "modelUsage": {
+  "claude-haiku-5-5": {
+   "inputTokens": 1294,
+   "outputTokens": 3268,
+   "cacheReadInputTokens": 3445,
+   "cacheCreationInputTokens": 689,
+   "webSearchRequests": 0,
+   "costUSD": 0.00193565,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 0,
+   "cacheCreationEphemeral5mInputTokens": 0,
+   "cacheCreationEphemeral1hInputTokens": 689,
+   "canonicalModel": "claude-haiku-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Flappy Bird</title>\n<style>\n  html, body {\n    margin: 0;\n    height: 100%;\n    background: #1b1b1b;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    overflow: hidden;\n    font-family: Arial, Helvetica, sans-serif;\n  }\n  canvas {\n    background: #70c5ce;\n    border: 2px solid #000;\n    max-width: 100vw;\n    max-height: 100vh;\n    touch-action: none;\n  }\n</style>\n</head>\n<body>\n<canvas id=\"game\" width=\"400\" height=\"600\"></canvas>\n<script>\n(function () {\n  const canvas = document.getElementById('game');\n  const ctx = canvas.getContext('2d');\n  const W = canvas.width;\n  const H = canvas.height;\n\n  const GROUND_H = 80;\n  const GRAVITY = 0.45;\n  const JUMP_V = -8;\n  const PIPE_SPEED = 2.5;\n  const PIPE_W = 60;\n  const PIPE_GAP = 150;\n  const PIPE_SPACING = 200;\n  const BIRD_X = 90;\n  const BIRD_R = 14;\n\n  let bird, pipes, score, state, frame;\n\n  function reset() {\n    bird = { y: H / 2, vy: 0, rot: 0 };\n    pipes = [];\n    score = 0;\n    frame = 0;\n    state = 'ready';\n  }\n\n  function jump() {\n    if (state === 'ready') {\n      state = 'playing';\n    }\n    if (state === 'playing') {\n      bird.vy = JUMP_V;\n    } else if (state === 'over') {\n      reset();\n    }\n  }\n\n  function addPipe() {\n    const minTop = 60;\n    const maxTop = H - GROUND_H - PIPE_GAP - 60;\n    const top = minTop + Math.random() * (maxTop - minTop);\n    pipes.push({ x: W, top: top, passed: false });\n  }\n\n  function collidesWithPipe(p) {\n    const birdLeft = BIRD_X - BIRD_R + 3;\n    const birdRight = BIRD_X + BIRD_R - 3;\n    const birdTop = bird.y - BIRD_R + 3;\n    const birdBottom = bird.y + BIRD_R - 3;\n    if (birdRight < p.x || birdLeft > p.x + PIPE_W) return false;\n    return birdTop < p.top || birdBottom > p.top + PIPE_GAP;\n  }\n\n  function update() {\n    if (state === 'playing') {\n      frame++;\n      bird.vy += GRAVITY;\n      bird.y += bird.vy;\n      bird.rot = Math.min(Math.PI / 2, Math.max(-0.45, bird.vy * 0.07));\n\n      if (frame % 90 === 0) addPipe();\n\n      for (const p of pipes) {\n        p.x -= PIPE_SPEED;\n        if (!p.passed && p.x + PIPE_W < BIRD_X - BIRD_R) {\n          p.passed = true;\n          score++;\n        }\n        if (collidesWithPipe(p)) {\n          endGame();\n        }\n      }\n      pipes = pipes.filter(p => p.x + PIPE_W > -10);\n\n      if (bird.y + BIRD_R >= H - GROUND_H || bird.y - BIRD_R <= 0) {\n        if (bird.y - BIRD_R <= 0) {\n          bird.y = BIRD_R;\n          bird.vy = 0;\n        } else {\n          endGame();\n        }\n      }\n    } else if (state === 'ready') {\n      bird.y = H / 2 + Math.sin(Date.now() / 200) * 8;\n    }\n  }\n\n  function endGame() {\n    if (state !== 'over') {\n      state = 'over';\n      bird.vy = 0;\n    }\n  }\n\n  function drawBird() {\n    ctx.save();\n    ctx.translate(BIRD_X, bird.y);\n    ctx.rotate(bird.rot);\n    ctx.fillStyle = '#f7d51d';\n    ctx.beginPath();\n    ctx.arc(0, 0, BIRD_R, 0, Math.PI * 2);\n    ctx.fill();\n    ctx.strokeStyle = '#000';\n    ctx.lineWidth = 2;\n    ctx.stroke();\n    ctx.fillStyle = '#fff';\n    ctx.beginPath();\n    ctx.arc(5, -4, 5, 0, Math.PI * 2);\n    ctx.fill();\n    ctx.stroke();\n    ctx.fillStyle = '#000';\n    ctx.beginPath();\n    ctx.arc(7, -4, 2, 0, Math.PI * 2);\n    ctx.fill();\n    ctx.fillStyle = '#e8872a';\n    ctx.beginPath();\n    ctx.moveTo(BIRD_R - 2, -2);\n    ctx.lineTo(BIRD_R + 8, 2);\n    ctx.lineTo(BIRD_R - 2, 6);\n    ctx.closePath();\n    ctx.fill();\n    ctx.stroke();\n    ctx.restore();\n  }\n\n  function drawPipe(p) {\n    const bottomY = p.top + PIPE_GAP;\n    ctx.fillStyle = '#73bf2e';\n    ctx.strokeStyle = '#2d5a0e';\n    ctx.lineWidth = 3;\n    ctx.fillRect(p.x, 0, PIPE_W, p.top);\n    ctx.strokeRect(p.x, -3, PIPE_W, p.top + 3);\n    ctx.fillRect(p.x, bottomY, PIPE_W, H - GROUND_H - bottomY);\n    ctx.strokeRect(p.x, bottomY, PIPE_W, H - GROUND_H - bottomY + 3);\n    ctx.fillStyle = '#8fd848';\n    ctx.fillRect(p.x - 5, p.top - 22, PIPE_W + 10, 22);\n    ctx.strokeRect(p.x - 5, p.top - 22, PIPE_W + 10, 22);\n    ctx.fillRect(p.x - 5, bottomY, PIPE_W + 10, 22);\n    ctx.strokeRect(p.x - 5, bottomY, PIPE_W + 10, 22);\n  }\n\n  function drawGround() {\n    ctx.fillStyle = '#ded895';\n    ctx.fillRect(0, H - GROUND_H, W, GROUND_H);\n    ctx.fillStyle = '#73bf2e';\n    ctx.fillRect(0, H - GROUND_H, W, 20);\n    ctx.strokeStyle = '#2d5a0e';\n    ctx.lineWidth = 2;\n    ctx.beginPath();\n    ctx.moveTo(0, H - GROUND_H);\n    ctx.lineTo(W, H - GROUND_H);\n    ctx.stroke();\n  }\n\n  function drawScore() {\n    ctx.font = 'bold 48px Arial';\n    ctx.textAlign = 'center';\n    ctx.lineWidth = 6;\n    ctx.strokeStyle = '#000';\n    ctx.fillStyle = '#fff';\n    ctx.strokeText(score, W / 2, 70);\n    ctx.fillText(score, W / 2, 70);\n  }\n\n  function drawOverlayText(title, sub) {\n    ctx.textAlign = 'center';\n    ctx.font = 'bold 40px Arial';\n    ctx.lineWidth = 6;\n    ctx.strokeStyle = '#000';\n    ctx.fillStyle = '#fff';\n    ctx.strokeText(title, W / 2, H / 2 - 20);\n    ctx.fillText(title, W / 2, H / 2 - 20);\n    if (sub) {\n      ctx.font = 'bold 22px Arial';\n      ctx.lineWidth = 4;\n      ctx.strokeText(sub, W / 2, H / 2 + 25);\n      ctx.fillText(sub, W / 2, H / 2 + 25);\n    }\n  }\n\n  function draw() {\n    ctx.fillStyle = '#70c5ce';\n    ctx.fillRect(0, 0, W, H);\n\n    for (const p of pipes) drawPipe(p);\n    drawGround();\n    drawBird();\n\n    if (state === 'playing' || state === 'over') {\n      drawScore();\n    }\n\n    if (state === 'ready') {\n      drawOverlayText('Flappy Bird', 'Press Space or Click to start');\n    } else if (state === 'over') {\n      drawOverlayText('Game Over', 'Score: ' + score + '  -  Press Space or Click to restart');\n    }\n  }\n\n  function loop() {\n    update();\n    draw();\n    requestAnimationFrame(loop);\n  }\n\n  document.addEventListener('keydown', e => {\n    if (e.code === 'Space') {\n      e.preventDefault();\n      if (!e.repeat) jump();\n    }\n  });\n\n  canvas.addEventListener('mousedown', e => {\n    e.preventDefault();\n    jump();\n  });\n\n  canvas.addEventListener('touchstart', e => {\n    e.preventDefault();\n    jump();\n  }, { passive: false });\n\n  reset();\n  loop();\n})();\n</script>\n</body>\n</html>"
+}

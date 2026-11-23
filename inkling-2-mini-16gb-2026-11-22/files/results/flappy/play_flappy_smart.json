@@ -1,0 +1,24 @@
+{
+ "mode": "flappy_smart",
+ "first_offscreen_at_s": null,
+ "bird_y_min": 188,
+ "bird_y_max": 426,
+ "texts_seen_after_30s": [
+  "Game Over",
+  "Score: 0",
+  "Press Space or Click to Restart",
+  "Game Over",
+  "Score: 0",
+  "Press Space or Click to Restart"
+ ],
+ "texts_end": [
+  "Game Over",
+  "Score: 0",
+  "Press Space or Click to Restart",
+  "Game Over",
+  "Score: 0",
+  "Press Space or Click to Restart"
+ ],
+ "bird_y_end": 354.07676006881076,
+ "errors": []
+}

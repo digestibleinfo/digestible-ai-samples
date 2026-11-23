@@ -1,0 +1,24 @@
+{
+ "mode": "flappy_aim",
+ "first_offscreen_at_s": null,
+ "bird_y_min": 102,
+ "bird_y_max": 432,
+ "texts_seen_after_30s": [
+  "14",
+  "15",
+  "16",
+  "17",
+  "18",
+  "19"
+ ],
+ "texts_end": [
+  "14",
+  "15",
+  "16",
+  "17",
+  "18",
+  "19"
+ ],
+ "bird_y_end": 204.58332052367328,
+ "errors": []
+}
