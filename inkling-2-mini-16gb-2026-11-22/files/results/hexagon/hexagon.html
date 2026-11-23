@@ -1,0 +1,221 @@
+Here's a self-contained interactive simulation — single HTML file, no dependencies. It handles gravity, ball–wall collisions against a *rotating* hexagon (accounting for the wall surface velocity at the contact point), and ball–ball collisions with restitution and mass.
+
+**Physics notes:**
+- The hexagon rotates about its center; each edge is treated as a moving surface. Ball–wall collision uses the relative velocity `v_ball − v_wall`, where `v_wall = ω × r` at the contact point — without this term the bounces look wrong (energy appears/disappears).
+- Restitution controls energy loss; positional correction pushes overlapping balls out of the wall so they don't sink in.
+- Fixed substeps prevent tunneling through edges at high speed.
+- Ball mass ∝ r², so big balls are heavier and push small ones around.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bouncing Balls in a Rotating Hexagon</title>
+<style>
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #0b0e17; }
+  canvas { display: block; }
+  #panel {
+    position: absolute; top: 12px; left: 12px; width: 250px;
+    background: rgba(16,20,34,.82); backdrop-filter: blur(8px);
+    border: 1px solid rgba(140,170,255,.25); border-radius: 12px;
+    padding: 14px 16px; color: #dfe6ff; font: 13px/1.5 system-ui, sans-serif;
+    user-select: none;
+  }
+  #panel h1 { font-size: 14px; margin: 0 0 10px; color: #9db8ff; letter-spacing: .3px; }
+  #panel label { display: block; margin: 8px 0 2px; color: #aab6d8; }
+  #panel span { float: right; color: #fff; font-variant-numeric: tabular-nums; }
+  #panel input[type=range] { width: 100%; accent-color: #7ea0ff; margin: 2px 0 4px; }
+  .row { display: flex; gap: 6px; margin-top: 10px; }
+  button {
+    flex: 1; background: #22304f; color: #cfe0ff; border: 1px solid #3a4d78;
+    border-radius: 8px; padding: 6px 0; cursor: pointer; font-size: 12px;
+  }
+  button:hover { background: #2c3d63; }
+  .hint { margin: 10px 0 0; font-size: 11px; color: #7f8cb0; }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="panel">
+  <h1>Bouncing Balls · Rotating Hexagon</h1>
+  <label>Rotation ω <span id="omegaVal">0.60 rad/s</span></label>
+  <input type="range" id="omega" min="-2" max="2" step="0.05" value="0.6">
+  <label>Gravity <span id="gravVal">700 px/s²</span></label>
+  <input type="range" id="grav" min="0" max="1600" step="50" value="700">
+  <label>Restitution <span id="restVal">0.85</span></label>
+  <input type="range" id="rest" min="0" max="1" step="0.01" value="0.85">
+  <div class="row">
+    <button id="add">+ Ball</button>
+    <button id="reset">Reset</button>
+    <button id="pause">Pause</button>
+  </div>
+  <p class="hint">Click inside the hexagon to drop a ball. Drag sliders live.</p>
+</div>
+
+<script>
+(() => {
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+
+let W = 0, H = 0, DPR = 1;
+let cx = 0, cy = 0, R = 100;
+let theta = 0;
+let running = true;
+const params = { omega: 0.6, gravity: 700, restitution: 0.85 };
+let balls = [];
+
+function resize() {
+  const oldCx = cx, oldCy = cy, oldR = R;
+  DPR = Math.min(window.devicePixelRatio || 1, 2);
+  W = window.innerWidth; H = window.innerHeight;
+  canvas.width = W * DPR; canvas.height = H * DPR;
+  canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  cx = W / 2; cy = H / 2; R = Math.min(W, H) * 0.36;
+  if (oldR && balls.length) {
+    const s = R / oldR;
+    for (const b of balls) {
+      b.x = cx + (b.x - oldCx) * s;
+      b.y = cy + (b.y - oldCy) * s;
+    }
+  }
+}
+
+function hexVerts(th) {
+  const v = [];
+  for (let i = 0; i < 6; i++) {
+    const a = th + i * Math.PI / 3;
+    v.push({ x: cx + R * Math.cos(a), y: cy + R * Math.sin(a) });
+  }
+  return v;
+}
+
+function insideHex(p, margin) {
+  const v = hexVerts(theta);
+  for (let i = 0; i < 6; i++) {
+    const a = v[i], b = v[(i + 1) % 6];
+    let nx = -(b.y - a.y), ny = (b.x - a.x);
+    const nl = Math.hypot(nx, ny) || 1; nx /= nl; ny /= nl;
+    const mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2;
+    if (nx * (cx - mx) + ny * (cy - my) > 0) { nx = -nx; ny = -ny; } // outward
+    if (nx * (p.x - a.x) + ny * (p.y - a.y) > -margin) return false;
+  }
+  return true;
+}
+
+function spawnBall(x, y) {
+  const r = 8 + Math.random() * 12;
+  if (x === undefined) {
+    let tries = 0;
+    do {
+      const a = Math.random() * Math.PI * 2, d = Math.sqrt(Math.random()) * R * 0.7;
+      x = cx + Math.cos(a) * d; y = cy + Math.sin(a) * d;
+      tries++;
+    } while (!insideHex({ x, y }, r + 4) && tries < 50);
+  }
+  if (!insideHex({ x, y }, r + 2)) return;
+  for (const b of balls) {
+    if (Math.hypot(b.x - x, b.y - y) < b.r + r + 2) return; // too crowded
+  }
+  balls.push({ x, y, vx: (Math.random() - .5) * 140, vy: (Math.random() - .5) * 140, r, m: r * r });
+}
+
+function wallCollide() {
+  const v = hexVerts(theta);
+  for (const b of balls) {
+    for (let i = 0; i < 6; i++) {
+      const pa = v[i], pb = v[(i + 1) % 6];
+      const abx = pb.x - pa.x, aby = pb.y - pa.y;
+      const len2 = abx * abx + aby * aby;
+      let t = ((b.x - pa.x) * abx + (b.y - pa.y) * aby) / len2;
+      t = Math.max(0, Math.min(1, t));
+      const qx = pa.x + abx * t, qy = pa.y + aby * t;
+      const dx = b.x - qx, dy = b.y - qy;
+      const d = Math.hypot(dx, dy);
+      if (d >= b.r) continue;
+
+      let nx, ny;
+      if (d > 1e-6) { nx = dx / d; ny = dy / d; }
+      else {
+        nx = -aby; ny = abx;
+        const nl = Math.hypot(nx, ny) || 1; nx /= nl; ny /= nl;
+        if (nx * (cx - qx) + ny * (cy - qy) < 0) { nx = -nx; ny = -ny; }
+      }
+
+      const pen = b.r - d;
+      b.x += nx * pen; b.y += ny * pen;
+
+      // velocity of the wall surface at contact point (screen coords, y down)
+      const vwx = params.omega * (-(qy - cy));
+      const vwy = params.omega * (qx - cx);
+      const rvx = b.vx - vwx, rvy = b.vy - vwy;
+      const vn = rvx * nx + rvy * ny;
+      if (vn < 0) {
+        const j = -(1 + params.restitution) * vn;
+        b.vx = vwx + rvx + j * nx;
+        b.vy = vwy + rvy + j * ny;
+      }
+    }
+  }
+}
+
+function ballBallCollide() {
+  for (let i = 0; i < balls.length; i++) {
+    for (let k = i + 1; k < balls.length; k++) {
+      const A = balls[i], B = balls[k];
+      let dx = B.x - A.x, dy = B.y - A.y;
+      let d = Math.hypot(dx, dy);
+      const minD = A.r + B.r;
+      if (d >= minD) continue;
+      if (d < 1e-6) { dx = 0.01; dy = 0; d = Math.hypot(dx, dy); }
+      const nx = dx / d, ny = dy / d;
+      const overlap = minD - d;
+      const wA = 1 / A.m, wB = 1 / B.m, wSum = wA + wB;
+
+      A.x -= nx * overlap * (wA / wSum); A.y -= ny * overlap * (wA / wSum);
+      B.x += nx * overlap * (wB / wSum); B.y += ny * overlap * (wB / wSum);
+
+      const rvx = B.vx - A.vx, rvy = B.vy - A.vy;
+      const vn = rvx * nx + rvy * ny;
+      if (vn < 0) {
+        const j = -(1 + params.restitution) * vn / wSum;
+        A.vx -= j * nx * wA; A.vy -= j * ny * wA;
+        B.vx += j * nx * wB; B.vy += j * ny * wB;
+      }
+    }
+  }
+}
+
+function physics(dt) {
+  const sub = 4, h = dt / sub;
+  for (let s = 0; s < sub; s++) {
+    theta += params.omega * h;
+    for (const b of balls) {
+      b.vy += params.gravity * h;
+      b.x += b.vx * h;
+      b.y += b.vy * h;
+    }
+    for (let it = 0; it < 2; it++) { wallCollide(); ballBallCollide(); }
+  }
+}
+
+function render() {
+  ctx.clearRect(0, 0, W, H);
+  const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, Math.max(W, H) * 0.7);
+  grad.addColorStop(0, '#141a2e'); grad.addColorStop(1, '#0b0e17');
+  ctx.fillStyle = grad; ctx.fillRect(0, 0, W, H);
+
+  // hexagon
+  const v = hexVerts(theta);
+  ctx.beginPath();
+  ctx.moveTo(v[0].x, v[0].y);
+  for (let i = 1; i < 6; i++) ctx.lineTo(v[i].x, v[i].y);
+  ctx.closePath();
+  ctx.fillStyle = 'rgba(90,130,255,0.08)'; ctx.fill();
+  ctx.strokeStyle = '#8fb0ff'; ctx.lineWidth = 3; ctx.stroke();
+
+  // vertices + center
+  ctx.fillStyle = '#c9d6ff';
+  for (const p of v) { ctx.beginPath(); ctx.arc(p.x, p.y, 3, 0, 7); ctx.fill

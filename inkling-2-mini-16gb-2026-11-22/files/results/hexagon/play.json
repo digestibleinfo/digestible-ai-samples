@@ -1,0 +1,5 @@
+{
+ "frames_changing": 1,
+ "text": "Here's a self-contained interactive simulation \u2014 single HTML file, no dependencies. It handles gravity, ball\u2013wall collisions against a *rotating* hexagon (accounting for the wall surface velocity at the contact point), and ball\u2013ball collisions with restitution and mass. **Physics notes:** - The hexa",
+ "errors": []
+}

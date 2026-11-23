@@ -1,0 +1,33 @@
+{
+ "name": "flappy",
+ "build": "llama.cpp b12633 win-cuda-13.5",
+ "model": "Inkling-2-Mini UD-IQ4_XS (unsloth Mainline_Support)",
+ "ngl_arg": "99",
+ "layers_on_gpu": "49/49",
+ "load_s": 12.6,
+ "gen_s": 184.2,
+ "stream_chunks": 4681,
+ "completion_tokens": 4705,
+ "tokens_per_s": 25.68,
+ "prompt_tokens": 99,
+ "finish_reason": "stop",
+ "gpu_baseline_gb": 0.53,
+ "peak_gpu_total_gb": 15.5,
+ "peak_vram_process_gb": 14.97,
+ "ram_baseline_gb": 16.44,
+ "peak_ram_gb": 34.76,
+ "html_saved": true,
+ "reasoning_chars": 1881,
+ "error": null,
+ "settings": {
+  "ctx": 16384,
+  "kv": "q8_0/q8_0",
+  "temperature": 0.7,
+  "top_p": 0.8,
+  "top_k": 20,
+  "presence_penalty": 1.5,
+  "seed": 1,
+  "max_tokens": 12000
+ },
+ "prompt": "Write one complete Flappy Bird game as a single HTML file, with no external files. Use HTML, CSS and JavaScript on a canvas. Space or a click makes the bird jump. Pipes scroll left. Each pipe passed adds 1 to the score on screen. The game ends on a collision with a pipe or the ground and shows 'Game Over' and the score. Output only the HTML file."
+}

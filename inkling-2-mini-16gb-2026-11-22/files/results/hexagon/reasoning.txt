@@ -1,0 +1,435 @@
+The user asks about "Bouncing ball(s) inside a rotating hexagon with gravity and collisions." This sounds like they want a simulation/physics implementation — likely code. The request is ambiguous: could be asking for a description, an explanation, or actual code. Most likely they want an interactive simulation (e.g., HTML/JavaScript canvas) or Python code. Given the phrasing "Bouncing ball(s) inside a rotating hexagon with gravity and collisions" — sounds like a coding challenge / game.
+
+I should provide a working implementation. Best approach: give a self-contained HTML/JS canvas simulation with physics: gravity, hexagon walls (rotating), collision detection between balls and hexagon edges, ball-ball collisions, restitution. Also mention physics details: rotating frame vs inertial frame — important subtlety: if the hexagon rotates, walls move; ball-wall collision must account for wall velocity at contact point.
+
+Let me design:
+
+Physics model:
+- Hexagon centered at origin, radius R (circumradius), rotating with angular velocity ω.
+- Balls: position p, velocity v, radius r, mass m, restitution e.
+- Gravity: constant vector g (e.g., downward in screen coords).
+- Wall collision: For each edge of the hexagon, compute signed distance from ball center to edge line; if ball overlaps (distance < r), push out and reflect velocity relative to wall surface velocity.
+
+Wall velocity at point x on edge: v_wall = ω × (x - center) = ω * perpendicular(x - center). In 2D, v = ω * (-(y - cy), (x - cx)) for angular velocity ω (z-axis).
+
+Collision resolution:
+- Compute closest point on edge segment to ball center.
+- If distance < r: normal n = (ball_center - closest_point)/distance (or edge outward normal if center is inside... careful with corners). Simpler robust approach: use edge line normals for interior containment, but corner handling needs segment closest point. Let's do segment-based: closest point on each edge; penetration = r - dist; if penetration > 0, push ball out along n by penetration; relative velocity v_rel = v_ball - v_wall(closest_point); normal component vn = dot(v_rel, n); if vn < 0 (approaching), reflect: v_ball -= (1+e) * vn * n; also add wall velocity? Actually after reflection in relative frame, v_ball = v_wall + reflected relative velocity. Standard: v_rel' = v_rel - (1+e)(v_rel·n)n; v_ball = v_wall + v_rel'.
+
+Ball-ball collisions: standard elastic/inelastic 2D circle collision: normal along centers, relative velocity along normal, impulse with restitution and mass weighting.
+
+Integration: semi-implicit Euler, substeps for stability. Fixed timestep.
+
+Also rotating frame subtlety: gravity is in inertial frame; hexagon rotates but center fixed. Fine.
+
+UI: canvas, controls: number of balls, rotation speed slider, gravity slider, restitution, add ball, reset. Maybe click to add ball. Keep code reasonably compact but complete.
+
+Should I write Python instead? HTML/JS is more interactive and self-contained; user didn't specify platform. I'll give a single-file HTML page they can open in a browser. Also explain the physics briefly.
+
+Let me write the code carefully.
+
+Structure:
+- Canvas full window, devicePixelRatio scaling.
+- Hex center at canvas center, radius R = min(w,h)*0.38.
+- rotation angle θ increases by ω dt.
+- Edges: vertices V_i = center + R * (cos(θ + i*60°), sin(...)) for i=0..5.
+- Balls array with x,y,vx,vy,r,m,e.
+
+Physics step (fixed dt, e.g., 1/240 substeps, 4 substeps per frame at 60fps):
+For each ball: v += g*dt; p += v*dt.
+Then collisions: wall iterations (2-3 passes), ball-ball iterations.
+
+Wall collision function:
+for each edge (a,b): closest point q on segment to ball center c; d = dist(c,q); if d < r: n = (c - q)/d (if d≈0 use edge normal); penetration = r - d; c += n*penetration; wall velocity at q: vw = ω * perp(q - center) where perp(u) = (-uy, ux). v_rel = v - vw; vn = dot(v_rel, n); if vn < 0: v = vw + (v_rel - (1+e)*vn*n).
+
+Note sign of ω: screen y down; rotation direction visually consistent — fine.
+
+Ball-ball:
+for i<j: d = dist; if d < r_i + r_j: n = (c_j - c_i)/d; overlap = r_i+r_j - d; positional correction weighted by inverse mass; relative velocity v_rel = v_j - v_i; vn = dot(v_rel, n); if vn < 0: e = min(e_i,e_j) or average; impulse j = -(1+e)*vn / (1/m_i + 1/m_j); v_i -= j*n/m_i; v_j += j*n/m_j.
+
+Rendering: draw hexagon path with rotation, fill translucent, stroke; balls as circles with slight gradient; maybe trails optional. Keep simple but nice.
+
+Controls: sliders for rotation speed (deg/sec), gravity, restitution, number of balls; buttons add ball at random position, reset. Also pause. Use pointer events: click on canvas adds a ball? Could conflict with UI; keep a button + "click canvas to add ball".
+
+Also show FPS maybe not needed.
+
+Edge cases: d == 0 in wall collision (ball center exactly on segment) — use edge outward normal instead. Outward normal of edge: n_edge = perp(b-a) normalized, pointing away from hexagon center; check dot(center - q, n_edge) < 0 means center inside... Let's just compute: if d < 1e-6, use normal from edge line: n = normalize(perp(b - a)); if dot(n, c - q) < 0 then n = -n.
+
+Also ensure balls can't tunnel through thin edges at high speed: substeps and small dt help; could also clamp velocity. Fine.
+
+Let me write the full HTML file. Keep it clean, moderately compact but complete. Use dark theme, minimal CSS.
+
+Code sketch:
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Bouncing Balls in Rotating Hexagon</title>
+<style>...</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="ui"> sliders ... </div>
+<script>
+const canvas = ..., ctx = ...;
+let W,H,DPR; resize();
+state: balls[], theta, omega (rad/s) from slider, gravity px/s^2, restitution default per-ball.
+Hex params: center cx,cy computed each frame; R.
+
+function hexVerts(theta){ ... }
+
+Physics step with substeps: dt fixed = 1/120, accumulate real time.
+
+render(): clear, draw hexagon (fill rgba, stroke), draw balls, maybe draw rotation arrow indicator.
+
+UI wiring.
+
+Click on canvas adds ball at pointer (if within hex). 
+
+Balls initial: 5 balls random positions inside hex with small velocities.
+
+Ensure spawn inside hex: rejection sampling: random point in bounding circle, check inside hexagon via edge sign test. Inside test: for each edge, dot(p - a, outwardNormal) <= 0. Compute outward normal per edge: n = perp(b-a) normalized; if dot(n, center - midpoint) > 0 then n = -n (so it points away from center). Then inside if all dot(p - a, n) <= 0? Wait: interior is on the side opposite outward normal; for point p inside, dot(p - a, n_out) < 0. Yes.
+
+Also spawn ball radius small enough to fit.
+
+Rotation speed slider: range -3..3 rad/s or deg/sec. Show value.
+
+Gravity slider: 0..2000 px/s², default ~600.
+
+Restitution slider applies to all balls (or per new ball). Simpler: global restitution used for wall and ball collisions; store per ball at creation? Global is fine — set on each step. I'll make it a global parameter affecting both walls and balls.
+
+Ball count display. "Add ball" button, "Reset" button, pause toggle.
+
+Let me also mention the physics subtleties in prose: wall velocity term for rotating hexagon (otherwise energy issues), restitution, substeps. Also mention that if they want a specific platform (Python/matplotlib, Unity, etc.) I can adapt.
+
+Now write it carefully to avoid bugs.
+
+Details:
+
+const TAU = Math.PI*2;
+hexVerts(theta): for i in 0..5: ang = theta + i*TAU/6; v = {x: cx + R*cos(ang), y: cy + R*sin(ang)}.
+
+Edges from vertices consecutive (i to i+1 mod 6).
+
+Wall collision per ball per edge:
+a=verts[i], b=verts[i+1]; abx=b.x-a.x, aby=b.y-a.y; len2 = abx*abx+aby*aby; t = ((c.x-a.x)*abx + (c.y-a.y)*aby)/len2; t=clamp(t,0,1); q = {x: a.x+abx*t, y: a.y+aby*t}; dx=c.x-q.x, dy=c.y-q.y; d=hypot(dx,dy); if d < r: 
+  let nx,ny; if d > 1e-9 {nx=dx/d; ny=dy/d;} else { // center on segment
+    nx = -aby; ny = abx; const nl = Math.hypot(nx,ny)||1; nx/=nl; ny/=nl; if (nx*(c.x-cx)+ny*(c.y-cy) < 0) {nx=-nx;ny=-ny;} // point toward center side? we want normal pointing from wall toward ball interior... Ball is inside hexagon, so normal should point into the interior (away from wall). If center exactly on segment, pick normal pointing toward hex center: dot(n, center - q) > 0 ensures that. Let's do: if (nx*(cx-q.x)+ny*(cy-q.y) < 0) {nx=-nx; ny=-ny;}
+  }
+  penetration = r - d; c.x += nx*penetration; c.y += ny*penetration;
+  // wall velocity at q: v_w = ω × (q - center), in screen coords with y down and ω positive meaning clockwise visually: v_w = ω * (-(q.y - cy), (q.x - cx))? Let's derive: standard 2D rotation with angle θ increasing counterclockwise in math coords (y up): v = ω × r = ω*(-r_y, r_x). In screen coords (y down), if we use same formula with y-down coordinates and ω positive meaning clockwise visually, the formula for velocity of point rotating about center: v = ω * (-(q.y - cy), (q.x - cx)) where ω>0 gives... Let's verify: q directly right of center: r=(d,0). Clockwise rotation (visually) means the point moves downward: v should be (0, +ω d) in screen coords. Formula: ω*(-0, d) = (0, ω d). ✓. So v_w = ω * (-(q.y - cy), (q.x - cx)).
+  const vwx = omega * (-(q.y - cy)), vwy = omega * (q.x - cx);
+  const rvx = c.vx - vwx, rvy = c.vy - vwy;
+  const vn = rvx*nx + rvy*ny;
+  if (vn < 0) {
+    const e = restitution;
+    const j = -(1+e)*vn; // impulse along normal in relative frame
+    c.vx = vwx + rvx + j*nx;
+    c.vy = vwy + rvy + j*ny;
+  }
+
+Note: ball radius r, but hexagon walls are the outer boundary — balls inside. Normal n points from wall toward interior (toward ball), since d measured from q to ball center and ball is inside. Good.
+
+Ball-ball collision:
+for i<j: dx = b.x - a.x... let's call them A,B. dx = B.x-A.x, dy=B.y-A.y; d=hypot; minD = A.r+B.r; if d < minD && d>0: n=(dx/d,dy/d); overlap=minD-d; total inverse mass wsum = 1/A.m + 1/B.m; correction: A -= n*overlap*( (1/A.m)/wsum ); B += n*overlap*( (1/B.m)/wsum ); relative velocity along normal: rvx = B.vx - A.vx, rvy = B.vy - A.vy; vn = rvx*n.x + rvy*n.y; if vn < 0: e = restitution (global); j = -(1+e)*vn/wsum; A.vx -= j*n.x/A.m; A.vy -= j*n.y/A.m; B.vx += j*n.x/B.m; B.vy += j*n.y/B.m.
+
+Masses: equal mass = r^2 (area) or just 1 for all? Use m = r*r for fun — bigger balls heavier. Fine, mention it.
+
+Integration with substeps:
+function step(dt){ // dt total frame time
+  const nSub = 4; const h = dt/nSub;
+  for s in nSub:
+    theta += omega * h;
+    for each ball: vy += g*h (gravity along +y screen); x += vx*h; y += vy*h;
+    wallCollide(); // 2 iterations
+    ballBallCollide(); // 2 iterations
+}
+
+Actually theta should advance consistently with substeps — yes.
+
+Rendering: hexagon path from current vertices; fill 'rgba(80,120,255,0.08)', stroke '#7ea0ff' lineWidth 3; draw center marker and rotation direction arrow maybe skip. Balls: radial gradient circle, stroke darker. Draw velocity? no.
+
+UI: top-left panel with controls; styled dark translucent. Sliders: rotation speed (rad/s) -2..2 step 0.1 default 0.6; gravity 0..1500 step 50 default 700; restitution 0..1 step 0.01 default 0.85; ball radius? maybe not needed. Buttons: Add Ball, Reset, Pause. Click canvas to add ball at click point (if inside hexagon). Show hint text.
+
+Handle resize: keep balls within new hex — clamp positions or just rescale? Simplest: on resize, re-center and scale ball positions relative to old center... Could just clamp into new hex by pushing out via wall collision next frame; but if ball outside new hex far away, wall push only fixes penetration along closest edge — could fling. Simpler: on resize, keep balls' relative offsets scaled by new R/old R. I'll do that.
+
+Also pause button toggles running flag.
+
+Time handling: requestAnimationFrame with last timestamp; dt = min(0.033, (now-last)/1000). Accumulate? Just use dt directly with substeps — fine.
+
+Spawn ball: random inside hex with margin r+4: rejection sample within circle radius R*0.9; check inside hexagon using edge test with margin: dot(p - a, n_out) <= -(r+2). Also avoid spawning overlapping other balls (try 20 times).
+
+Inside test function pointInHex(p, margin): for each edge compute outward normal once per frame? Compute on the fly with current theta. Outward normal per edge: n = perp(b-a) normalized; if dot(n, center - midpoint) > 0 → flip (so n points away from center). Then inside if dot(p - a, n) <= -margin for all edges.
+
+Ball radius random 8–20.
+
+Draw rotation indicator: small arc arrow near top vertex showing ω direction? Could add subtle dashed circle? Skip; maybe show angular velocity value in UI.
+
+Also draw gravity vector arrow from center? Small touch: draw a small downward arrow labeled g. Optional — include tiny.
+
+Performance fine.
+
+Now, also the user might want "ball(s)" plural with collisions between balls — included.
+
+Write final answer: brief intro, physics notes (short bullet list), then full code block, then usage instructions and possible extensions. Keep prose concise; code is the bulk. Format: markdown with headers maybe minimal. Code block large but that's expected. Avoid excessive explanation.
+
+Let me write the code fully and double check syntax mentally.
+
+<script>
+(() => {
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+let W=0,H=0,DPR=1;
+let cx=0, cy=0, R=100;
+
+function resize(){
+  DPR = Math.min(window.devicePixelRatio||1, 2);
+  const oldCx=cx, oldCy=cy, oldR=R;
+  W = window.innerWidth; H = window.innerHeight;
+  canvas.width = W*DPR; canvas.height = H*DPR;
+  canvas.style.width = W+'px'; canvas.style.height = H+'px';
+  ctx.setTransform(DPR,0,0,DPR,0,0);
+  cx = W/2; cy = H/2; R = Math.min(W,H)*0.36;
+  if (oldR && balls.length){
+    const s = R/oldR;
+    for (const b of balls){ b.x = cx + (b.x-oldCx)*s; b.y = cy + (b.y-oldCy)*s; }
+  }
+}
+
+Wait: balls defined later — resize called before balls declared? Order: declare state first, then resize. Use function hoisting carefully. I'll declare `let balls=[]` etc. before resize call. Inside resize, reference balls — fine if declared with let before call.
+
+Hex vertices:
+function hexVerts(theta){
+  const v=[];
+  for(let i=0;i<6;i++){
+    const a = theta + i*Math.PI/3;
+    v.push({x: cx + R*Math.cos(a), y: cy + R*Math.sin(a)});
+  }
+  return v;
+}
+
+State:
+let balls = [];
+let theta = 0;
+let running = true;
+const params = { omega: 0.6, gravity: 700, restitution: 0.85 };
+
+function insideHex(p, margin){
+  const v = hexVerts(theta);
+  for(let i=0;i<6;i++){
+    const a=v[i], b=v[(i+1)%6];
+    let nx = -(b.y-a.y), ny = (b.x-a.x); // perp
+    const nl = Math.hypot(nx,ny)||1; nx/=nl; ny/=nl;
+    const mx=(a.x+b.x)/2, my=(a.y+b.y)/2;
+    if (nx*(cx-mx)+ny*(cy-my) > 0){ nx=-nx; ny=-ny; } // point away from center
+    if (nx*(p.x-a.x)+ny*(p.y-a.y) > -margin) return false;
+  }
+  return true;
+}
+
+Check perp orientation: edge a→b, perp (-dy, dx) is left normal in screen coords? Whatever — we flip based on center side, so fine.
+
+spawnBall(x,y):
+function spawnBall(x,y){
+  const r = 8 + Math.random()*12;
+  if (x===undefined){
+    let tries=0;
+    do {
+      const a = Math.random()*Math.PI*2, d = Math.sqrt(Math.random())*R*0.75;
+      x = cx + Math.cos(a)*d; y = cy + Math.sin(a)*d;
+      tries++;
+    } while (!insideHex({x,y}, r+4) && tries<50);
+  }
+  if (!insideHex({x,y}, r+2)) return;
+  // avoid overlap
+  for (const b of balls){ const d=Math.hypot(b.x-x,b.y-y); if (d < b.r + r + 2) { tries++ ... } } — simpler: just check and retry a few times. I'll do a small loop with attempts; if fail, still spawn? Better to skip.
+  balls.push({x,y,vx:(Math.random()-0.5)*120, vy:(Math.random()-0.5)*120, r, m:r*r});
+}
+
+Simplify: attempts loop of 30 for random spawn; for click spawn, check inside and overlap once.
+
+Physics step:
+function physics(dt){
+  const sub = 4, h = dt/sub;
+  for (let s=0;s<sub;s++){
+    theta += params.omega*h;
+    for (const b of balls){ b.vy += params.gravity*h; b.x += b.vx*h; b.y += b.vy*h; }
+    for (let it=0; it<2; it++){ wallCollide(); ballBallCollide(); }
+  }
+}
+
+wallCollide:
+function wallCollide(){
+  const v = hexVerts(theta);
+  for (const b of balls){
+    for (let i=0;i<6;i++){
+      const a=v[i], c2=v[(i+1)%6]; // avoid name clash with ball center: use p,q? rename edge points pa,pb.
+      ...
+    }
+  }
+}
+
+Let me write carefully with distinct names:
+
+function wallCollide(){
+  const v = hexVerts(theta);
+  for (const b of balls){
+    for (let i=0;i<6;i++){
+      const pa=v[i], pb=v[(i+1)%6];
+      const abx=pb.x-pa.x, aby=pb.y-pa.y;
+      const len2 = abx*abx+aby*aby;
+      let t = ((b.x-pa.x)*abx + (b.y-pa.y)*aby)/len2;
+      t = Math.max(0, Math.min(1, t));
+      const qx = pa.x+abx*t, qy = pa.y+aby*t;
+      let dx = b.x-qx, dy = b.y-qy;
+      let d = Math.hypot(dx,dy);
+      if (d >= b.r) continue;
+      let nx, ny;
+      if (d > 1e-6){ nx=dx/d; ny=dy/d; }
+      else {
+        nx = -aby; ny = abx;
+        const nl = Math.hypot(nx,ny)||1; nx/=nl; ny/=nl;
+        if (nx*(cx-qx)+ny*(cy-qy) < 0){ nx=-nx; ny=-ny; }
+      }
+      const pen = b.r - d;
+      b.x += nx*pen; b.y += ny*pen;
+      const vwx = params.omega * (-(qy - cy));
+      const vwy = params.omega * (qx - cx);
+      const rvx = b.vx - vwx, rvy = b.vy - vwy;
+      const vn = rvx*nx + rvy*ny;
+      if (vn < 0){
+        const j = -(1+params.restitution)*vn;
+        b.vx = vwx + rvx + j*nx;
+        b.vy = vwy + rvy + j*ny;
+      }
+    }
+  }
+}
+
+Check wall velocity sign with screen coords: ω>0 should rotate hexagon clockwise visually (since theta increases and y is down, angle increasing goes clockwise). Point at right of center (r=(d,0)): clockwise → moves down → v=(0, +ω d). Formula: vwx = ω*(-(qy-cy)) = ω*0 = 0; vwy = ω*(qx-cx) = ω*d > 0 → downward ✓.
+
+Ball-ball:
+function ballBallCollide(){
+  for (let i=0;i<balls.length;i++){
+    for (let j2=i+1;j2<balls.length;j2++){
+      const A=balls[i], B=balls[j2];
+      let dx=B.x-A.x, dy=B.y-A.y;
+      let d=Math.hypot(dx,dy);
+      const minD=A.r+B.r;
+      if (d>=minD) continue;
+      if (d<1e-6){ dx=0.01; dy=0; d=Math.hypot(dx,dy); }
+      const nx=dx/d, ny=dy/d;
+      const overlap=minD-d;
+      const wA=1/A.m, wB=1/B.m, wSum=wA+wB;
+      A.x -= nx*overlap*(wA/wSum); A.y -= ny*overlap*(wA/wSum);
+      B.x += nx*overlap*(wB/wSum); B.y += ny*overlap*(wB/wSum);
+      const rvx=B.vx-A.vx, rvy=B.vy-A.vy;
+      const vn=rvx*nx+rvy*ny;
+      if (vn<0){
+        const j=-(1+params.restitution)*vn/wSum;
+        A.vx -= j*nx*wA; A.vy -= j*ny*wA;
+        B.vx += j*nx*wB; B.vy += j*ny*wB;
+      }
+    }
+  }
+}
+
+Render:
+function render(){
+  ctx.clearRect(0,0,W,H);
+  // background gradient
+  ...fill dark
+  const v = hexVerts(theta);
+  ctx.beginPath(); moveTo... closePath; fill rgba(90,130,255,0.07); stroke '#8fb0ff' lw 3; also inner glow? keep simple.
+  // rotation direction arrow: draw small curved arrow at radius R*1.12? maybe skip or simple text.
+  for balls: radial gradient fill, stroke.
+}
+
+Draw hexagon vertices as small dots maybe.
+
+Main loop:
+let last=performance.now();
+function frame(now){
+  const dt = Math.min(0.033, (now-last)/1000); last=now;
+  if (running) physics(dt);
+  render();
+  requestAnimationFrame(frame);
+}
+
+UI wiring: sliders update params and value labels. Buttons add/reset/pause. Canvas click adds ball at position (if insideHex with margin) else ignore.
+
+Reset: balls=[]; theta=0; spawn initial 6.
+
+Init: resize(); reset(); rAF.
+
+Edge case: slider gravity changes mid-flight — fine.
+
+Also add small "click anywhere to drop a ball" hint in UI.
+
+Now the prose: explain key physics points:
+- Rotating walls: ball must collide against moving surface; relative velocity used, wall point velocity v_w = ω × r added back — otherwise energy/momentum behaves oddly.
+- Restitution, positional correction to avoid sinking, substeps for tunneling.
+- Ball-ball impulse with masses ∝ r².
+
+Also note: gravity is inertial (down), hexagon rotates about its center; if they want rotating frame (centrifugal/Coriolis) that's a different model — mention briefly as an extension.
+
+Format: short intro line, "Physics" bullets (4-5), code block, "How to use" few lines, "Ideas to extend" 3-4 bullets. Keep it tight. The code will be long (~250 lines) which is fine.
+
+Let me now write the final HTML fully, carefully checking syntax.
+
+CSS: body margin 0 overflow hidden background #0b0e17; canvas display block; panel absolute top left with backdrop-filter blur, dark translucent, rounded, small font monospace/system; range inputs styled minimal (accent-color). Buttons dark.
+
+Panel HTML:
+<div id="panel">
+  <h1>Rotating Hexagon — Bouncing Balls</h1>
+  <label>Rotation ω <span id="omegaVal">0.60</span> rad/s <input type="range" id="omega" min="-2" max="2" step="0.05" value="0.6"></label>
+  <label>Gravity <span id="gravVal">700</span> px/s² <input type="range" id="grav" min="0" max="1600" step="50" value="700"></label>
+  <label>Restitution <span id="restVal">0.85</span> <input type="range" id="rest" min="0" max="1" step="0.01" value="0.85"></label>
+  <div class="row"><button id="add">+ Ball</button><button id="reset">Reset</button><button id="pause">Pause</button></div>
+  <p class="hint">Click inside the hexagon to drop a ball.</p>
+</div>
+
+JS wiring: get elements, addEventListener input → params + label text.
+
+Canvas click: canvas.addEventListener('pointerdown', e => { const x=e.clientX, y=e.clientY; spawnBall(x,y); }); But clicking panel shouldn't add — panel is separate div above canvas, pointer events on panel won't reach canvas since panel is a sibling overlay with its own background — clicks on panel target panel, not canvas ✓ (canvas listener only fires for events on canvas).
+
+spawnBall(x, y): if x defined → place there if insideHex margin r+2 and no overlap; else random.
+
+Random spawn attempts: 40 tries.
+
+Initial balls: 6.
+
+Also draw gravity arrow: from center down length ~60px with arrowhead, subtle alpha. And maybe draw ω arc arrow near top edge? I'll add a small curved arrow indicating rotation direction at radius R*1.15 — could be fiddly; simpler: draw text "ω = 0.6 rad/s" in panel only. Skip canvas arrow except gravity arrow.
+
+Also draw hexagon center crosshair subtle.
+
+Ball gradient: create radial gradient each frame per ball (fine for few balls).
+
+Let me finalize numbers: R = min(W,H)*0.36; default ω 0.6 rad/s (~34°/s) nice slow rotation; gravity 700 px/s².
+
+One more check — insideHex uses theta global current; spawn before first physics fine.
+
+Resize handler with balls rescale: also update cx,cy,R then rescale ball positions relative to old center by s=R/oldR. If oldR is 0 (first call) skip.
+
+Write the final code now. Also ensure no name shadowing bugs: in wallCollide I used pb etc. Good.
+
+Double-check insideHex normal flip logic: edge pa→pb; perp n=(-aby, abx). For a hexagon centered at c, midpoint m. If dot(n, c - m) > 0 then n points toward center → we want outward, so flip. ✓ Then inside if dot(p - pa, n) <= -margin for all edges (interior side is negative of outward). ✓
+
+In wallCollide degenerate case: nx=-aby, ny=abx (perp to edge). Flip so it points toward center: if dot(n, c - q) < 0 flip — wait we want normal pointing into interior (toward ball/center side). Ball is inside; normal should point from wall toward ball i.e., toward interior. So ensure dot(n, center - q) > 0. In code: if (nx*(cx-qx)+ny*(cy-qy) < 0) flip. ✓
+
+Wall velocity formula uses params.omega — same for all edges ✓.
+
+Impulse in wall collision: relative frame reflection with restitution e: v_rel' = v_rel - (1+e)(v_rel·n) n where n points from wall toward ball. vn = v_rel·n; approaching means ball moving into wall → relative velocity along -n direction → vn<0 ✓. Then b.vx = vwx + rvx + j*nx with j=-(1+e)vn > 0 ✓.
+
+Ball-ball impulse sign: n points from A to B. Approaching: vn = (vB - vA)·n < 0 ✓. j = -(1+e)vn/wSum > 0; A.vx -= j*nx*wA (A pushed back along -n) ✓, B.vx += j*nx*wB ✓.
+
+Positional correction: A moves opposite n by overlap*wA/wSum ✓.
+
+Initial ball velocities small random; gravity pulls them down; they bounce around. Good demo.
+
+Pause button text toggles "Pause"/"Resume".
+
+Reset also theta=0 and params unchanged.
+
+I think the answer is ready to compose. Keep prose concise; code block with html. Add brief notes on physics and extensions. Length: mostly code, acceptable.

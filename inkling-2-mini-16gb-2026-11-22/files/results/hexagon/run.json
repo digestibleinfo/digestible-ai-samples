@@ -1,0 +1,33 @@
+{
+ "name": "hexagon",
+ "build": "llama.cpp b12633 win-cuda-13.5",
+ "model": "Inkling-2-Mini UD-IQ4_XS (unsloth Mainline_Support)",
+ "ngl_arg": "99",
+ "layers_on_gpu": "49/49",
+ "load_s": 12.6,
+ "gen_s": 288.7,
+ "stream_chunks": 11922,
+ "completion_tokens": 12000,
+ "tokens_per_s": 41.67,
+ "prompt_tokens": 31,
+ "finish_reason": "length",
+ "gpu_baseline_gb": 0.64,
+ "peak_gpu_total_gb": 15.57,
+ "peak_vram_process_gb": 14.93,
+ "ram_baseline_gb": 16.31,
+ "peak_ram_gb": 34.56,
+ "html_saved": true,
+ "reasoning_chars": 24197,
+ "error": null,
+ "settings": {
+  "ctx": 16384,
+  "kv": "q8_0/q8_0",
+  "temperature": 0.7,
+  "top_p": 0.8,
+  "top_k": 20,
+  "presence_penalty": 1.5,
+  "seed": 1,
+  "max_tokens": 12000
+ },
+ "prompt": "Bouncing ball(s) inside a rotating hexagon with gravity and collisions."
+}

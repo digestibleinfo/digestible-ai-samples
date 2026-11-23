@@ -1,0 +1,33 @@
+{
+ "name": "check",
+ "build": "llama.cpp b12633 win-cuda-13.5",
+ "model": "Inkling-2-Mini UD-IQ4_XS (unsloth Mainline_Support)",
+ "ngl_arg": "99",
+ "layers_on_gpu": null,
+ "load_s": 14.1,
+ "gen_s": 2.3,
+ "stream_chunks": 59,
+ "completion_tokens": 64,
+ "tokens_per_s": 38.48,
+ "prompt_tokens": 22,
+ "finish_reason": "length",
+ "gpu_baseline_gb": 0.67,
+ "peak_gpu_total_gb": 15.36,
+ "peak_vram_process_gb": 14.69,
+ "ram_baseline_gb": 16.22,
+ "peak_ram_gb": 34.64,
+ "html_saved": false,
+ "reasoning_chars": 261,
+ "error": null,
+ "settings": {
+  "ctx": 16384,
+  "kv": "q8_0/q8_0",
+  "temperature": 0.7,
+  "top_p": 0.8,
+  "top_k": 20,
+  "presence_penalty": 1.5,
+  "seed": 1,
+  "max_tokens": 64
+ },
+ "prompt": "Say hello in one short sentence."
+}

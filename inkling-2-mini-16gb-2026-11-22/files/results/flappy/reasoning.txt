@@ -1,0 +1,42 @@
+The user wants a complete Flappy Bird game as a single HTML file. Requirements:
+- Single HTML file, no external files
+- HTML, CSS, JavaScript on canvas
+- Space or click makes bird jump
+- Pipes scroll left
+- Each pipe passed adds 1 to score on screen
+- Game ends on collision with pipe or ground, shows 'Game Over' and score
+- Output only the HTML file
+
+Let me write a clean, complete implementation. I should make it visually decent but keep it simple enough. Include:
+- Canvas setup
+- Bird physics (gravity, jump velocity)
+- Pipe generation with gap
+- Collision detection (bird circle vs pipe rectangles)
+- Score tracking
+- Game over state with restart capability (maybe press space/click to restart — that's a nice addition but the requirement says game ends and shows Game Over and score; adding restart is fine and helpful)
+- Ground
+
+Let me write the code carefully.
+
+Canvas: 400x600 maybe. Bird drawn as circle or simple shape. Pipes drawn green rectangles with caps. Sky gradient. Ground strip at bottom.
+
+Game states: 'ready' (waiting for first jump), 'playing', 'over'.
+
+Physics:
+- gravity ~0.5 per frame (at 60fps)
+- jump velocity ~ -9
+- pipe speed ~2.5
+- gap ~150
+- spawn interval based on distance
+
+Collision: bird as circle radius ~12; pipes are rects; check circle-rect intersection. Ground collision: bird.y + r >= groundY.
+
+Score: when pipe's x + width < bird.x and not counted, score++.
+
+Rendering text with canvas fillText.
+
+Click/touch support: pointerdown event. Space keydown. Prevent default for space scrolling.
+
+Restart on click/space after game over — good UX. Requirement says "Space or a click makes the bird jump" — I'll allow restart too.
+
+Write clean code with no external resources. Output only HTML file, no markdown fences? The instruction says "Output only the HTML file." So output raw HTML without code fences. I'll just output the HTML directly.

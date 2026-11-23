@@ -1,0 +1,1 @@
+The user asks to say hello in one short sentence. Need answer exactly one short sentence, likely "Hello!" Ensure no extra sentences. Final should be one short sentence. Could say "Hello!" That's a short sentence. Need no additional explanation. Done. Now final.

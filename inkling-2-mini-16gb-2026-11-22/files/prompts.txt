@@ -1,0 +1,5 @@
+﻿Prompt 1 (check): Say hello in one short sentence.
+
+Prompt 2 (flappy): Write one complete Flappy Bird game as a single HTML file, with no external files. Use HTML, CSS and JavaScript on a canvas. Space or a click makes the bird jump. Pipes scroll left. Each pipe passed adds 1 to the score on screen. The game ends on a collision with a pipe or the ground and shows 'Game Over' and the score. Output only the HTML file.
+
+Prompt 3 (hexagon): Bouncing ball(s) inside a rotating hexagon with gravity and collisions.
