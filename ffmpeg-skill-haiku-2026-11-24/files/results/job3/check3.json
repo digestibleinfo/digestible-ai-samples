@@ -1,0 +1,26 @@
+{
+ "job": "job3",
+ "checks": {
+  "C10": {
+   "pass": false,
+   "w": 1080,
+   "h": 1920,
+   "vcodec": "h264",
+   "has_audio": true,
+   "duration": 61.995,
+   "source": 61.954,
+   "expected": 63.954
+  },
+  "C13_volume": {
+   "pass": true,
+   "short_mean_db": -20.3,
+   "source_mean_db": -20.3
+  },
+  "C13_gaps": {
+   "pass": true,
+   "short_silences": 6,
+   "source_silences": 6,
+   "note": "source has our own 6 inserted pauses; the criterion is no EXTRA gap at the join (fixed 2026-11-24 after first run: compared with the source count, not zero)"
+  }
+ }
+}

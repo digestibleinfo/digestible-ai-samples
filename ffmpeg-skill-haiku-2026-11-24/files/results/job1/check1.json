@@ -1,0 +1,59 @@
+{
+ "job": "job1",
+ "checks": {
+  "C1": {
+   "pass": true,
+   "duration": 54.933,
+   "streams": [
+    "audio",
+    "video"
+   ]
+  },
+  "C2": {
+   "pass": true,
+   "left": [],
+   "count": 0
+  },
+  "C3_wer": {
+   "pass": true,
+   "wer": 0.0054,
+   "n_ref": 186,
+   "n_hyp": 186
+  },
+  "C3_edges": {
+   "pass": true,
+   "sentences_missing_first_or_last_word": []
+  },
+  "C4": {
+   "pass": true,
+   "source_dur": 61.954,
+   "source_silence_total": 9.42,
+   "n_source_silences": 6,
+   "removed": 7.02,
+   "cut_dur": 54.933
+  },
+  "C5_durations": {
+   "pass": true,
+   "video": [
+    54.9
+   ],
+   "audio": [
+    54.933
+   ]
+  }
+ },
+ "spot_times": [
+  {
+   "sentence": 3,
+   "t_in_cut": 7.24
+  },
+  {
+   "sentence": 7,
+   "t_in_cut": 23.92
+  },
+  {
+   "sentence": 12,
+   "t_in_cut": 45.02
+  }
+ ]
+}

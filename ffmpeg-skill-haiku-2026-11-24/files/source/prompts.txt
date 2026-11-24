@@ -1,0 +1,5 @@
+﻿JOB 1: Use the ffmpeg-skill. Cut the silences (pauses of half a second or more) out of source.mp4 and save cut.mp4. Keep every spoken word. Use `python`, not `python3`.
+JOB 2: Use the ffmpeg-skill. Make captions from the speech in source.mp4 with faster-whisper (install it in a venv inside this folder if needed) and save captions.srt. Do not change the video.
+JOB 3: Use the ffmpeg-skill. Make a 9:16 vertical Short (1080x1920) from source.mp4 with a title card for 2 seconds at the start reading: Packing a Day Pack. Keep the audio. Save short.mp4.
+FLAGS: --model haiku --output-format json --max-budget-usd 0.30 --setting-sources project --allowedTools "Bash,PowerShell,Read,Write,Skill"
+

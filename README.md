@@ -1,4 +1,4 @@
-﻿# Digestible AI: sample packs
+# Digestible AI: sample packs
 
 The test files and scripts used in the Digestible AI install guides and reviews on YouTube.
 Each video says which pack to download. Save the zip into the folder you made in the video, then unpack it with
@@ -26,6 +26,8 @@ Each video says which pack to download. Save the zip into the folder you made in
 | Cheap Agent (Claude Code planner + cheap-model worker, cost test) | [cheap-agent-samples.zip](https://github.com/digestibleinfo/digestible-ai-samples/raw/main/cheap-agent/cheap-agent-samples.zip) | [cheap-agent/files](cheap-agent/files) |
 | HyperFlow H3 Flash on an 8 GB GPU (MiniMax H3 compressed video model, 5 clips, timings and VRAM/RAM) | [hyperflow-h3-samples.zip](https://github.com/digestibleinfo/digestible-ai-samples/raw/main/hyperflow-h3-flash-8gb-2026-11-14/hyperflow-h3-samples.zip) | [hyperflow-h3-flash-8gb-2026-11-14/files](hyperflow-h3-flash-8gb-2026-11-14/files) |
 | Inkling 2 Mini on a 16 GB GPU (llama.cpp, Flappy Bird and hexagon tests, speed and VRAM/RAM, Claude Haiku comparison) | [inkling2-mini-samples.zip](https://github.com/digestibleinfo/digestible-ai-samples/raw/main/inkling-2-mini-16gb-2026-11-22/inkling2-mini-samples.zip) | [inkling-2-mini-16gb-2026-11-22/files](inkling-2-mini-16gb-2026-11-22/files) |
+
+| ffmpeg-skill on Claude Code Haiku (3 video edits, cost and pass/fail per job, honest job-3 fail) | [ffmpeg-skill-samples.zip](https://github.com/digestibleinfo/digestible-ai-samples/raw/main/ffmpeg-skill-haiku-2026-11-24/ffmpeg-skill-samples.zip) | [ffmpeg-skill-haiku-2026-11-24/files](ffmpeg-skill-haiku-2026-11-24/files) |
 
 All names, numbers, messages and documents in these packs are made up for testing, except the Kronos pack, whose scripts download real public price history. Photos marked as AI-generated and voice notes are synthetic.
 

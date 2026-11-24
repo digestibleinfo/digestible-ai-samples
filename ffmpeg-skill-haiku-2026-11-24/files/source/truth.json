@@ -1,0 +1,116 @@
+{
+ "sentences": [
+  {
+   "n": 1,
+   "start": 0.0,
+   "end": 2.834,
+   "text": "Packing a day pack is easier when you start with the weather."
+  },
+  {
+   "n": 2,
+   "start": 3.184,
+   "end": 6.816,
+   "text": "Check the forecast first, because rain changes almost everything you carry."
+  },
+  {
+   "n": 3,
+   "start": 7.816,
+   "end": 11.172,
+   "text": "Next, choose a pack that fits your back and sits high on your hips."
+  },
+  {
+   "n": 4,
+   "start": 11.522,
+   "end": 15.788,
+   "text": "Put the heavy items close to your spine, so the weight does not pull you backward."
+  },
+  {
+   "n": 5,
+   "start": 16.988,
+   "end": 21.323,
+   "text": "Water goes in next, and one liter for every two hours of walking is a good rule."
+  },
+  {
+   "n": 6,
+   "start": 21.673,
+   "end": 25.067,
+   "text": "Then add food, and pack more than you think you will eat."
+  },
+  {
+   "n": 7,
+   "start": 26.567,
+   "end": 30.43,
+   "text": "A light rain jacket belongs near the top, where your hand can find it quickly."
+  },
+  {
+   "n": 8,
+   "start": 30.78,
+   "end": 34.973,
+   "text": "Keep a small first aid kit in a side pocket, with bandages and tape."
+  },
+  {
+   "n": 9,
+   "start": 36.473,
+   "end": 40.332,
+   "text": "Your phone and a paper map go in the lid pocket, away from the water."
+  },
+  {
+   "n": 10,
+   "start": 40.682,
+   "end": 45.168,
+   "text": "A hat and sunscreen take almost no space, and they save a long afternoon."
+  },
+  {
+   "n": 11,
+   "start": 47.168,
+   "end": 50.085,
+   "text": "Before you leave, lift the pack and walk across the room with it."
+  },
+  {
+   "n": 12,
+   "start": 50.435,
+   "end": 54.401,
+   "text": "If it feels heavy now, it will feel much heavier after five miles."
+  },
+  {
+   "n": 13,
+   "start": 56.401,
+   "end": 59.535,
+   "text": "Take out anything you will not use, and close every zipper."
+  },
+  {
+   "n": 14,
+   "start": 59.885,
+   "end": 61.954,
+   "text": "Then you are ready to walk out the door."
+  }
+ ],
+ "inserted_pauses": [
+  {
+   "after_sentence": 2,
+   "seconds": 1.0
+  },
+  {
+   "after_sentence": 4,
+   "seconds": 1.2
+  },
+  {
+   "after_sentence": 6,
+   "seconds": 1.5
+  },
+  {
+   "after_sentence": 8,
+   "seconds": 1.5
+  },
+  {
+   "after_sentence": 10,
+   "seconds": 2.0
+  },
+  {
+   "after_sentence": 12,
+   "seconds": 2.0
+  }
+ ],
+ "natural_gap_s": 0.35,
+ "total_s": 61.954
+}

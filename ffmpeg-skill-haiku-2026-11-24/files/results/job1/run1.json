@@ -1,0 +1,176 @@
+{
+ "duration_api_ms": 11899,
+ "stop_reason": "end_turn",
+ "total_cost_usd": 0.008018500000000001,
+ "usage": {
+  "input_tokens": 10,
+  "cache_creation_input_tokens": 25478,
+  "cache_read_input_tokens": 196520,
+  "output_tokens": 1647,
+  "output_tokens_details": {
+   "thinking_tokens": 739
+  },
+  "server_tool_use": {
+   "web_search_requests": 0,
+   "web_fetch_requests": 0
+  },
+  "service_tier": "standard",
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 25478,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "inference_geo": "global",
+  "iterations": [
+   {
+    "input_tokens": 2,
+    "output_tokens": 483,
+    "cache_read_input_tokens": 48075,
+    "cache_creation_input_tokens": 3107,
+    "cache_creation": {
+     "ephemeral_5m_input_tokens": 0,
+     "ephemeral_1h_input_tokens": 3107
+    },
+    "type": "message"
+   }
+  ],
+  "speed": "standard",
+  "fallback_credit": null
+ },
+ "modelUsage": {
+  "claude-haiku-5-5": {
+   "inputTokens": 1242,
+   "outputTokens": 1667,
+   "cacheReadInputTokens": 196520,
+   "cacheCreationInputTokens": 25478,
+   "webSearchRequests": 0,
+   "costUSD": 0.008018500000000001,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 739,
+   "cacheCreationEphemeral5mInputTokens": 0,
+   "cacheCreationEphemeral1hInputTokens": 25478,
+   "canonicalModel": "claude-haiku-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "permission_denials": [],
+ "terminal_reason": "completed",
+ "fast_mode_state": "off",
+ "fast_mode_disabled_reason": "extra_usage_disabled",
+ "subagent_stats": {
+  "spawned": 0,
+  "requested": {
+   "background": 0,
+   "foreground": 0,
+   "unset": 0
+  },
+  "started_in_background": 0,
+  "max_depth": 0,
+  "spawned_by_subagents": 0,
+  "completed": 0,
+  "failed": 0,
+  "killed": {
+   "parent": 0,
+   "user": 0,
+   "system": 0
+  },
+  "refused": {
+   "depth_limit": 0,
+   "concurrency_limit": 0,
+   "budget": 0
+  },
+  "by_type": {}
+ },
+ "safety_stops": 0,
+ "is_error": false,
+ "num_turns": 6,
+ "subtype": "success",
+ "api_error_status": null,
+ "result": "Done: `cut.mp4` is 54.93 s, down from 61.95 s, so 7.03 s of pauses were removed. Video is 1920x1080 at 30 fps, H.264 with AAC mono.\n\nI used `silence.py` with `--min-silence 0.5`. It found six pauses of 0.5 s or more, all about 1 to 1.5 s long, and kept 0.2 s on each side of speech. The source is re-encoded, not a lossless copy.\n\nThe check on \"keep every spoken word\" is not complete. The cut is based on audio level (-35 dB), not on a transcript. The output is verified for format and duration, but I did not listen to it. A quiet word that falls below -35 dB could be cut. To check, I can re-run with a transcript (`--transcribe`), which also lets sentence-ending pauses be handled separately, or use `--threshold -40` for a quieter recording.",
+ "ttft_ms": 1060,
+ "type": "result",
+ "duration_ms": 25323,
+ "ttft_stream_ms": 869,
+ "time_to_request_ms": 119,
+ "time_to_request_phases_ms": {
+  "other": 4,
+  "system_prompt": 19,
+  "resume_other": 0,
+  "process_user_input": 3,
+  "input_attachments": 24,
+  "input_hooks": 2,
+  "conversation_append": 1,
+  "transcript_persist": 15,
+  "tool_pool_refresh": 2,
+  "init_message": 5,
+  "init_frame_send": 3,
+  "engine_pickup": 2,
+  "loop_entry": 3,
+  "message_prep": 1,
+  "model_config_wait": 2,
+  "autocompact": 1,
+  "request_announcements": 7,
+  "query_setup": 2,
+  "model_gates": 0,
+  "tool_schema_build": 14,
+  "message_normalization": 2,
+  "client_creation": 1,
+  "request_build": 6
+ },
+ "turn_start_resume_kind": "none",
+ "process_turn_index": 0,
+ "time_to_request_loop_lag_ms": 16,
+ "time_to_request_cpu_ms": 187,
+ "time_to_request_major_faults": 3263,
+ "input_attachments_detail": {
+  "slowest_producer": "deferred_tools_delta",
+  "slowest_producer_ms": 14,
+  "cpu_ms": 15,
+  "major_faults": 776,
+  "setup_ms": 3,
+  "prompt_producers_ms": 0,
+  "ambient_start_ms": 4,
+  "ambient_wait_ms": 14,
+  "render_ms": 1,
+  "producers": 41,
+  "token_counts": 0
+ },
+ "tool_schema_build_detail": {
+  "betas_ms": 0,
+  "waits_ms": 2,
+  "placement_ms": 1,
+  "render_ms": 10,
+  "after_ms": 1,
+  "other_ms": 0,
+  "tools": 13,
+  "new_schemas": 13
+ },
+ "message_normalization_detail": {
+  "before_ms": 0,
+  "normalize_ms": 1,
+  "images_ms": 1,
+  "post_process_ms": 0,
+  "after_ms": 0,
+  "other_ms": 0,
+  "messages": 13,
+  "wire_messages": 2
+ },
+ "request_build_detail": {
+  "records_ms": 0,
+  "system_ms": 1,
+  "headers_ms": 0,
+  "cache_break_record_ms": 1,
+  "plans_ms": 1,
+  "retry_setup_ms": 0,
+  "sent_build_ms": 2,
+  "record_attempt_ms": 1,
+  "other_ms": 0,
+  "sent_build_safety_context_ms": 0,
+  "sent_build_cache_breakpoints_ms": 0,
+  "sent_build_surrogate_scan_ms": 1
+ },
+ "first_content_frame_ms": 869,
+ "queued_turn_count": 0,
+ "result_index": 0
+}

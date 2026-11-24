@@ -1,0 +1,84 @@
+{
+ "job": "job1",
+ "checks": {
+  "C1": {
+   "pass": true,
+   "duration": 61.954,
+   "streams": [
+    "audio",
+    "video"
+   ]
+  },
+  "C2": {
+   "pass": false,
+   "left": [
+    {
+     "end": 7.8475,
+     "dur": 1.041167
+    },
+    {
+     "end": 17.01675,
+     "dur": 1.234167
+    },
+    {
+     "end": 26.581208,
+     "dur": 1.514542
+    },
+    {
+     "end": 36.495667,
+     "dur": 1.553917
+    },
+    {
+     "end": 47.189792,
+     "dur": 2.038542
+    },
+    {
+     "end": 56.440667,
+     "dur": 2.041
+    }
+   ],
+   "count": 6
+  },
+  "C3_wer": {
+   "pass": true,
+   "wer": 0.0054,
+   "n_ref": 186,
+   "n_hyp": 186
+  },
+  "C3_edges": {
+   "pass": true,
+   "sentences_missing_first_or_last_word": []
+  },
+  "C4": {
+   "pass": true,
+   "source_dur": 61.954,
+   "source_silence_total": 9.42,
+   "n_source_silences": 6,
+   "removed": 0.0,
+   "cut_dur": 61.954
+  },
+  "C5_durations": {
+   "pass": true,
+   "video": [
+    61.933333
+   ],
+   "audio": [
+    61.954
+   ]
+  }
+ },
+ "spot_times": [
+  {
+   "sentence": 3,
+   "t_in_cut": 7.82
+  },
+  {
+   "sentence": 7,
+   "t_in_cut": 26.34
+  },
+  {
+   "sentence": 12,
+   "t_in_cut": 50.4
+  }
+ ]
+}

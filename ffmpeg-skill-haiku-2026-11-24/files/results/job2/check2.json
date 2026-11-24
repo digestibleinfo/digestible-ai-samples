@@ -1,0 +1,113 @@
+{
+ "job": "job2",
+ "checks": {
+  "C6": {
+   "pass": true,
+   "n_cues": 14,
+   "in_order_nonoverlap": true,
+   "cues_too_long_or_3plus_lines": 0
+  },
+  "C7": {
+   "pass": true,
+   "wer": 0.0054,
+   "n_ref": 186,
+   "n_hyp": 186
+  },
+  "C8": {
+   "pass": true,
+   "worst": 0.073,
+   "median": 0.02,
+   "unmatched": [],
+   "offsets": [
+    {
+     "n": 1,
+     "truth": 0.0,
+     "cue_start": 0.0,
+     "offset": 0.0
+    },
+    {
+     "n": 2,
+     "truth": 3.184,
+     "cue_start": 3.2,
+     "offset": 0.016
+    },
+    {
+     "n": 3,
+     "truth": 7.816,
+     "cue_start": 7.84,
+     "offset": 0.024
+    },
+    {
+     "n": 4,
+     "truth": 11.522,
+     "cue_start": 11.52,
+     "offset": -0.002
+    },
+    {
+     "n": 5,
+     "truth": 16.988,
+     "cue_start": 17.0,
+     "offset": 0.012
+    },
+    {
+     "n": 6,
+     "truth": 21.673,
+     "cue_start": 21.68,
+     "offset": 0.007
+    },
+    {
+     "n": 7,
+     "truth": 26.567,
+     "cue_start": 26.64,
+     "offset": 0.073
+    },
+    {
+     "n": 8,
+     "truth": 30.78,
+     "cue_start": 30.8,
+     "offset": 0.02
+    },
+    {
+     "n": 9,
+     "truth": 36.473,
+     "cue_start": 36.48,
+     "offset": 0.007
+    },
+    {
+     "n": 10,
+     "truth": 40.682,
+     "cue_start": 40.64,
+     "offset": -0.042
+    },
+    {
+     "n": 11,
+     "truth": 47.168,
+     "cue_start": 47.12,
+     "offset": -0.048
+    },
+    {
+     "n": 12,
+     "truth": 50.435,
+     "cue_start": 50.4,
+     "offset": -0.035
+    },
+    {
+     "n": 13,
+     "truth": 56.401,
+     "cue_start": 56.38,
+     "offset": -0.021
+    },
+    {
+     "n": 14,
+     "truth": 59.885,
+     "cue_start": 59.9,
+     "offset": 0.015
+    }
+   ]
+  },
+  "C9": {
+   "pass": true,
+   "sha256": "db62c0314875b4971da32e081dda3d740cf17ee24d714559ab69cb1a2e0c7e20"
+  }
+ }
+}
