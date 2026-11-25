@@ -1,0 +1,6 @@
+﻿game_start 2026-11-24T17:11:11 pid 23728
+rec_pid 28044 cam_pid 18908 rec_start 2026-11-24T17:11:16
+game_start 2026-11-24T18:22:54 pid 1784 seed 9
+rec_pid 19544 cam_pid 27340 rec_start 2026-11-24T18:22:54 (attempt 1 ended at 49 min: game exited cleanly after a click)
+game_start 2026-11-24T19:14:00 pid 20784 seed 9 NO CLICKS (attempt 2 died at 4 min)
+rec_pid 17552 2026-11-24T19:14:00

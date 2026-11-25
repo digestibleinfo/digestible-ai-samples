@@ -1,0 +1,98 @@
+{
+  "clip_finder": {
+    "windows": 2,
+    "window": "cloud",
+    "failed_windows": 0,
+    "picked": 14,
+    "refine": {
+      "profile": {
+        "tier": "long",
+        "total_sec": 6794.19,
+        "min_clip_sec": 60,
+        "target_clip_sec": [
+          90,
+          180
+        ],
+        "max_clip_sec": 300,
+        "topics_hint": [
+          11,
+          26
+        ],
+        "min_keep": 3,
+        "max_clips": 30,
+        "snap_window_sec": 3.0,
+        "merge_gap_sec": 5.0,
+        "overlap_merge_ratio": 0.5
+      },
+      "input": 14,
+      "snap_offsets_sec": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "dropped": [],
+      "merged": [],
+      "extended": 0,
+      "trimmed": 3,
+      "output": 14,
+      "durations_sec": [
+        261.8,
+        261.3,
+        261.1,
+        174.1,
+        174.4,
+        174.3,
+        259.0,
+        89.2,
+        91.2,
+        90.2,
+        261.2,
+        90.8,
+        89.2,
+        88.8
+      ],
+      "duration_stats": {
+        "min": 88.8,
+        "max": 261.8,
+        "mean": 169.1
+      },
+      "coverage": 0.348,
+      "snap_offset_p50": 0.0,
+      "snap_offset_p90": 0.0
+    },
+    "selection": {
+      "threshold": 0.7,
+      "candidates": 14,
+      "selected": 14,
+      "fallback_selected": 0,
+      "truncated": 0,
+      "min_keep": 3,
+      "max_clips": 30
+    }
+  }
+}

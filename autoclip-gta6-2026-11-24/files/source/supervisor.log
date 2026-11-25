@@ -1,0 +1,5 @@
+2026-11-24T19:24:22 seg1 game died before recording
+2026-11-24T19:24:52 seg2 start game pid 28296 rec pid 20432 seed 8
+2026-11-24T21:21:38 seg2 ended (recorder ended) duration 7000.000000 s
+2026-11-24T21:21:38 GOAL reached with seg2
+2026-11-24T21:21:38 supervisor done

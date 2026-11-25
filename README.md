@@ -28,6 +28,7 @@ Each video says which pack to download. Save the zip into the folder you made in
 | Inkling 2 Mini on a 16 GB GPU (llama.cpp, Flappy Bird and hexagon tests, speed and VRAM/RAM, Claude Haiku comparison) | [inkling2-mini-samples.zip](https://github.com/digestibleinfo/digestible-ai-samples/raw/main/inkling-2-mini-16gb-2026-11-22/inkling2-mini-samples.zip) | [inkling-2-mini-16gb-2026-11-22/files](inkling-2-mini-16gb-2026-11-22/files) |
 
 | ffmpeg-skill on Claude Code Haiku (3 video edits, cost and pass/fail per job, honest job-3 fail) | [ffmpeg-skill-samples.zip](https://github.com/digestibleinfo/digestible-ai-samples/raw/main/ffmpeg-skill-haiku-2026-11-24/ffmpeg-skill-samples.zip) | [ffmpeg-skill-haiku-2026-11-24/files](ffmpeg-skill-haiku-2026-11-24/files) |
+| autoclip (free Opus Clip alternative) on a 2-hour recorded game (local Ollama vs DeepSeek, 10 clips each, own checker, honest weak result; 0 A.D. footage CC BY-SA 3.0) | [autoclip-samples.zip](https://github.com/digestibleinfo/digestible-ai-samples/raw/main/autoclip-gta6-2026-11-24/autoclip-samples.zip) | [autoclip-gta6-2026-11-24/files](autoclip-gta6-2026-11-24/files) |
 
 All names, numbers, messages and documents in these packs are made up for testing, except the Kronos pack, whose scripts download real public price history. Photos marked as AI-generated and voice notes are synthetic.
 

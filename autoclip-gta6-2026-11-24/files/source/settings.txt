@@ -1,0 +1,9 @@
+﻿Frozen settings (written 2026-11-24 before run 1)
+Input: source.mp4, 6.99 min? see truth.json: duration 7000.0 s (116.7 min), 1080x720 30 fps, 1.13 GB, sha256 3D5DA78D0E9D3FE2EF378EC0422F9B27825CDD24CC988334C7A45940D29FF96D
+App: AutoClip Desktop 1.6.0 (windows/x86_64), installer sha256 9325073264D0F26F98F1FEDD8D8C88DA1A8F545B952048568513BF15078DACCC (matches build-provenance.json)
+Clip count: 10 (or the closest the app allows; recorded in run.json). Length window: 30-90 s. Language: English.
+Speech to subtitles: Whisper on this device, base (the app default), both runs.
+Prompts/other settings: app defaults, nothing changed.
+Run 1: Ollama on this PC, model qwen2.5vl:7b (vision-capable, 6.0 GB), highlight analysis and visual understanding. No key, zero tokens.
+Run 2: DeepSeek provider in the app (key pasted from the clipboard, never typed or shown), default model offered by the app.
+Cost cap run 2: stop at 0.50 USD, hard cap 1.00 USD; balance before 0.86 USD.

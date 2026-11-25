@@ -1,0 +1,77 @@
+{
+ "cues_total": 81,
+ "clips": 10,
+ "C4_caption_pass": 8,
+ "rows": [
+  {
+   "clip": "17a8d4f61e304b3db3dcd0373207e5ee.mp4",
+   "ref_words": 37,
+   "caption_words": 45,
+   "caption_wer": 0.243,
+   "C4_caption": false
+  },
+  {
+   "clip": "2715a578858a40e6a5e13f6c1791ff77.mp4",
+   "ref_words": 33,
+   "caption_words": 33,
+   "caption_wer": 0.0,
+   "C4_caption": true
+  },
+  {
+   "clip": "613dd39dc1c249f9af9be9c46244382d.mp4",
+   "ref_words": 33,
+   "caption_words": 34,
+   "caption_wer": 0.091,
+   "C4_caption": true
+  },
+  {
+   "clip": "6ca2d908b9434695a1391d84afca9665.mp4",
+   "ref_words": 28,
+   "caption_words": 35,
+   "caption_wer": 0.321,
+   "C4_caption": false
+  },
+  {
+   "clip": "8ce16163ea21468da46334adbd5cdd85.mp4",
+   "ref_words": 30,
+   "caption_words": 30,
+   "caption_wer": 0.0,
+   "C4_caption": true
+  },
+  {
+   "clip": "8cfe04810763457c951121de8f1a3be9.mp4",
+   "ref_words": 35,
+   "caption_words": 34,
+   "caption_wer": 0.086,
+   "C4_caption": true
+  },
+  {
+   "clip": "a6bcab591a704924bb5c41940babed93.mp4",
+   "ref_words": 41,
+   "caption_words": 41,
+   "caption_wer": 0.0,
+   "C4_caption": true
+  },
+  {
+   "clip": "b4a329f7ee044a71a9b355213a6ee2ab.mp4",
+   "ref_words": 34,
+   "caption_words": 34,
+   "caption_wer": 0.0,
+   "C4_caption": true
+  },
+  {
+   "clip": "c78aa596d052431fbb6aaece001a310e.mp4",
+   "ref_words": 40,
+   "caption_words": 39,
+   "caption_wer": 0.05,
+   "C4_caption": true
+  },
+  {
+   "clip": "e639671391c74f6fad7818fbab2473cc.mp4",
+   "ref_words": 39,
+   "caption_words": 38,
+   "caption_wer": 0.051,
+   "C4_caption": true
+  }
+ ]
+}

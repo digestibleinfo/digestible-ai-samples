@@ -1,0 +1,491 @@
+{
+ "duration": 7000.0,
+ "sentences": [
+  {
+   "i": 1,
+   "t": 25.0,
+   "dur": 5.43,
+   "text": "Welcome to a long strategy game played entirely by computer players, with nobody touching the mouse."
+  },
+  {
+   "i": 2,
+   "t": 110.6,
+   "dur": 4.39,
+   "text": "Six bots share this round map, and each one is trying to build the biggest economy."
+  },
+  {
+   "i": 3,
+   "t": 196.2,
+   "dur": 2.62,
+   "text": "The clock on this recording says minute three."
+  },
+  {
+   "i": 4,
+   "t": 281.9,
+   "dur": 6.76,
+   "text": "The game is called zero A D, and it is a free, open source game about ancient civilizations."
+  },
+  {
+   "i": 5,
+   "t": 367.5,
+   "dur": 4.24,
+   "text": "Every bot starts with a few workers, a town centre and a handful of soldiers."
+  },
+  {
+   "i": 6,
+   "t": 453.1,
+   "dur": 2.79,
+   "text": "The clock on this recording says minute eight."
+  },
+  {
+   "i": 7,
+   "t": 538.8,
+   "dur": 4.66,
+   "text": "The first job for any bot is food, so look for workers around berry bushes and farms."
+  },
+  {
+   "i": 8,
+   "t": 624.4,
+   "dur": 4.09,
+   "text": "Wood comes next, because houses, barracks and fields all need timber."
+  },
+  {
+   "i": 9,
+   "t": 710.0,
+   "dur": 2.89,
+   "text": "The clock on this recording says minute twelve."
+  },
+  {
+   "i": 10,
+   "t": 795.6,
+   "dur": 5.13,
+   "text": "In this view you can see a stone wall, a tower and a large field of farms, all built by the bots."
+  },
+  {
+   "i": 11,
+   "t": 881.2,
+   "dur": 5.04,
+   "text": "Houses matter a lot, because a bot cannot train more workers than its houses allow."
+  },
+  {
+   "i": 12,
+   "t": 966.9,
+   "dur": 3.23,
+   "text": "The clock on this recording says minute sixteen."
+  },
+  {
+   "i": 13,
+   "t": 1052.5,
+   "dur": 4.44,
+   "text": "Stone and metal are needed later, for towers, fortresses and better soldiers."
+  },
+  {
+   "i": 14,
+   "t": 1138.1,
+   "dur": 4.58,
+   "text": "Each civilization in this game has its own buildings and its own special units."
+  },
+  {
+   "i": 15,
+   "t": 1223.8,
+   "dur": 3.05,
+   "text": "The clock on this recording says minute twenty."
+  },
+  {
+   "i": 16,
+   "t": 1309.4,
+   "dur": 5.38,
+   "text": "Soldiers train in barracks, and most bots keep more than one barracks running."
+  },
+  {
+   "i": 17,
+   "t": 1395.0,
+   "dur": 4.5,
+   "text": "The bots in this round are all the same kind of computer player, set to the same difficulty."
+  },
+  {
+   "i": 18,
+   "t": 1480.6,
+   "dur": 3.65,
+   "text": "The clock on this recording says minute twenty five."
+  },
+  {
+   "i": 19,
+   "t": 1566.2,
+   "dur": 4.31,
+   "text": "A strong bot expands to new spots on the map and builds more town centres."
+  },
+  {
+   "i": 20,
+   "t": 1651.9,
+   "dur": 3.89,
+   "text": "Watch the small round map in the corner, it shows where every player has built."
+  },
+  {
+   "i": 21,
+   "t": 1737.5,
+   "dur": 3.15,
+   "text": "The clock on this recording says minute twenty nine."
+  },
+  {
+   "i": 22,
+   "t": 1823.1,
+   "dur": 4.04,
+   "text": "Forests run out, so workers keep walking further to cut the next tree."
+  },
+  {
+   "i": 23,
+   "t": 1908.8,
+   "dur": 4.17,
+   "text": "Farms never run out, but each field only feeds a few workers at a time."
+  },
+  {
+   "i": 24,
+   "t": 1994.4,
+   "dur": 3.22,
+   "text": "The clock on this recording says minute thirty three."
+  },
+  {
+   "i": 25,
+   "t": 2080.0,
+   "dur": 4.75,
+   "text": "Markets let a player trade one resource for another, at a worse rate each time."
+  },
+  {
+   "i": 26,
+   "t": 2165.6,
+   "dur": 5.39,
+   "text": "Towers watch over a base, and soldiers can garrison inside to shoot arrows from safety."
+  },
+  {
+   "i": 27,
+   "t": 2251.2,
+   "dur": 3.05,
+   "text": "The clock on this recording says minute thirty eight."
+  },
+  {
+   "i": 28,
+   "t": 2336.9,
+   "dur": 5.59,
+   "text": "Archers, spearmen and swordsmen make up the first armies, each good against something different."
+  },
+  {
+   "i": 29,
+   "t": 2422.5,
+   "dur": 3.25,
+   "text": "Cavalry is fast, so it often raids the workers of a neighbour."
+  },
+  {
+   "i": 30,
+   "t": 2508.1,
+   "dur": 3.42,
+   "text": "The clock on this recording says minute forty two."
+  },
+  {
+   "i": 31,
+   "t": 2593.8,
+   "dur": 4.76,
+   "text": "When two armies meet, you can see small groups of soldiers charging and breaking apart."
+  },
+  {
+   "i": 32,
+   "t": 2679.4,
+   "dur": 3.58,
+   "text": "Healers and champions come later, once a player has reached a higher age."
+  },
+  {
+   "i": 33,
+   "t": 2765.0,
+   "dur": 3.49,
+   "text": "The clock on this recording says minute forty six."
+  },
+  {
+   "i": 34,
+   "t": 2850.6,
+   "dur": 5.87,
+   "text": "A player advances through ages by paying resources, and each age unlocks stronger buildings."
+  },
+  {
+   "i": 35,
+   "t": 2936.2,
+   "dur": 4.1,
+   "text": "Siege weapons, like catapults, are used to knock down walls and fortresses."
+  },
+  {
+   "i": 36,
+   "t": 3021.9,
+   "dur": 3.25,
+   "text": "The clock on this recording says minute fifty."
+  },
+  {
+   "i": 37,
+   "t": 3107.5,
+   "dur": 4.41,
+   "text": "A bot that has lost its town centre has to rebuild before it can grow again."
+  },
+  {
+   "i": 38,
+   "t": 3193.1,
+   "dur": 4.43,
+   "text": "The game has no end condition in this round, so it keeps running until we stop recording."
+  },
+  {
+   "i": 39,
+   "t": 3278.8,
+   "dur": 3.16,
+   "text": "The clock on this recording says minute fifty five."
+  },
+  {
+   "i": 40,
+   "t": 3364.4,
+   "dur": 5.59,
+   "text": "Because nothing ends the game, the bots keep trading blows and rebuilding for hours."
+  },
+  {
+   "i": 41,
+   "t": 3450.0,
+   "dur": 4.88,
+   "text": "The terrain on this map is mostly savanna, with scattered trees and open grass."
+  },
+  {
+   "i": 42,
+   "t": 3535.6,
+   "dur": 2.76,
+   "text": "The clock on this recording says minute fifty nine."
+  },
+  {
+   "i": 43,
+   "t": 3621.2,
+   "dur": 4.61,
+   "text": "Wild animals roam the map, and workers hunt them for a quick supply of food."
+  },
+  {
+   "i": 44,
+   "t": 3706.9,
+   "dur": 4.82,
+   "text": "Every bot works out what to build next by looking at its own resources and its neighbours."
+  },
+  {
+   "i": 45,
+   "t": 3792.5,
+   "dur": 3.18,
+   "text": "The clock on this recording says minute sixty three."
+  },
+  {
+   "i": 46,
+   "t": 3878.1,
+   "dur": 4.03,
+   "text": "The recording is one single take of the screen, with no cuts and no edits."
+  },
+  {
+   "i": 47,
+   "t": 3963.8,
+   "dur": 4.16,
+   "text": "There is no sound from the game itself, only this commentary track."
+  },
+  {
+   "i": 48,
+   "t": 4049.4,
+   "dur": 3.39,
+   "text": "The clock on this recording says minute sixty seven."
+  },
+  {
+   "i": 49,
+   "t": 4135.0,
+   "dur": 4.28,
+   "text": "If you watch for a while, the bots look busy, but most of the work is plain gathering."
+  },
+  {
+   "i": 50,
+   "t": 4220.6,
+   "dur": 3.66,
+   "text": "Big battles are a small part of the time, and quiet building makes up the rest."
+  },
+  {
+   "i": 51,
+   "t": 4306.2,
+   "dur": 3.15,
+   "text": "The clock on this recording says minute seventy two."
+  },
+  {
+   "i": 52,
+   "t": 4391.9,
+   "dur": 4.25,
+   "text": "Walls can slow an attack, but a bot has to decide to build them first."
+  },
+  {
+   "i": 53,
+   "t": 4477.5,
+   "dur": 4.91,
+   "text": "Temples train healers, and docks build ships, but this map has very little water."
+  },
+  {
+   "i": 54,
+   "t": 4563.1,
+   "dur": 3.26,
+   "text": "The clock on this recording says minute seventy six."
+  },
+  {
+   "i": 55,
+   "t": 4648.8,
+   "dur": 4.9,
+   "text": "Workers carry only a small load, so every trip back to a drop site counts."
+  },
+  {
+   "i": 56,
+   "t": 4734.4,
+   "dur": 5.84,
+   "text": "Dropping off wood near the forest saves a lot of walking, so smart bots build storehouses close by."
+  },
+  {
+   "i": 57,
+   "t": 4820.0,
+   "dur": 3.05,
+   "text": "The clock on this recording says minute eighty."
+  },
+  {
+   "i": 58,
+   "t": 4905.6,
+   "dur": 4.53,
+   "text": "When a building is destroyed, the workers nearby usually run to a safe place."
+  },
+  {
+   "i": 59,
+   "t": 4991.2,
+   "dur": 3.6,
+   "text": "A single big fight can change the whole picture of the game in a few minutes."
+  },
+  {
+   "i": 60,
+   "t": 5076.9,
+   "dur": 3.04,
+   "text": "The clock on this recording says minute eighty five."
+  },
+  {
+   "i": 61,
+   "t": 5162.5,
+   "dur": 4.9,
+   "text": "This kind of match is very long, which is why it makes a good test for tools that cut long videos."
+  },
+  {
+   "i": 62,
+   "t": 5248.1,
+   "dur": 4.66,
+   "text": "A good clip has a start, a point and an end, even if the game never says where they are."
+  },
+  {
+   "i": 63,
+   "t": 5333.8,
+   "dur": 3.28,
+   "text": "The clock on this recording says minute eighty nine."
+  },
+  {
+   "i": 64,
+   "t": 5419.4,
+   "dur": 4.94,
+   "text": "On screen the action keeps moving, but the talking only comes in short bursts."
+  },
+  {
+   "i": 65,
+   "t": 5505.0,
+   "dur": 3.77,
+   "text": "Remember that the people playing here are computer programs, so nothing here is live."
+  },
+  {
+   "i": 66,
+   "t": 5590.6,
+   "dur": 3.29,
+   "text": "The clock on this recording says minute ninety three."
+  },
+  {
+   "i": 67,
+   "t": 5676.2,
+   "dur": 4.51,
+   "text": "The commentary is recorded after the match, and we place each sentence at a fixed time."
+  },
+  {
+   "i": 68,
+   "t": 5761.9,
+   "dur": 4.78,
+   "text": "Whatever you see next is the same single recording, from the first minute to the last."
+  },
+  {
+   "i": 69,
+   "t": 5847.5,
+   "dur": 3.32,
+   "text": "The clock on this recording says minute ninety seven."
+  },
+  {
+   "i": 70,
+   "t": 5933.1,
+   "dur": 3.43,
+   "text": "In a game like this, armies are built slowly and spent quickly."
+  },
+  {
+   "i": 71,
+   "t": 6018.8,
+   "dur": 4.99,
+   "text": "Farms are the steady part of the picture, because workers keep the same field for a long time."
+  },
+  {
+   "i": 72,
+   "t": 6104.4,
+   "dur": 3.18,
+   "text": "The clock on this recording says minute one hundred two."
+  },
+  {
+   "i": 73,
+   "t": 6190.0,
+   "dur": 4.33,
+   "text": "Bots decide on their own when to expand, so no two matches look the same."
+  },
+  {
+   "i": 74,
+   "t": 6275.6,
+   "dur": 3.73,
+   "text": "A tower like the one in view is cheap, and it covers the nearby fields."
+  },
+  {
+   "i": 75,
+   "t": 6361.2,
+   "dur": 3.02,
+   "text": "The clock on this recording says minute one hundred six."
+  },
+  {
+   "i": 76,
+   "t": 6446.9,
+   "dur": 5.35,
+   "text": "The wall in this view is there to slow down enemy soldiers who walk toward the base."
+  },
+  {
+   "i": 77,
+   "t": 6532.5,
+   "dur": 3.22,
+   "text": "A skirmish can start anywhere on the map, at any time."
+  },
+  {
+   "i": 78,
+   "t": 6618.1,
+   "dur": 3.68,
+   "text": "The clock on this recording says minute one hundred ten."
+  },
+  {
+   "i": 79,
+   "t": 6703.8,
+   "dur": 4.2,
+   "text": "Houses keep appearing around the town centre, because every new worker needs a place to live."
+  },
+  {
+   "i": 80,
+   "t": 6789.4,
+   "dur": 4.89,
+   "text": "The bots keep going whether or not anyone is watching, which is exactly what makes them useful here."
+  }
+ ],
+ "speech_seconds": 329.5,
+ "speech_share": 0.0471,
+ "window": [
+  30,
+  90
+ ]
+}
